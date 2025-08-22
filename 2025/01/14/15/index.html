@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaterfallGallery - ongwu博客</title>
+    <meta name="description" content="专注于技术分享、项目展示和教程分享的个人博客">
+    <meta name="keywords" content="Hexo, 博客, 技术, 作品, 教程">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.ico">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 头部 -->
+    <header class="header">
+    <div class="container">
+        <div class="header-content">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="/">
+                    <div class="logo-icon">
+                        <div class="logo-lines">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <span class="logo-text">ONGWU BLOG</span>
+                </a>
+            </div>
+            
+            <!-- 导航菜单 -->
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            首页
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/projects/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3H21V21H3V3ZM5 5V19H19V5H5ZM7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H13V17H7V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            项目作品
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tech/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            技术深究
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tutorial/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 3H6A2 2 0 0 1 8 5V17A2 2 0 0 1 6 19H2A2 2 0 0 1 0 17V5A2 2 0 0 1 2 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 3H18A2 2 0 0 0 16 5V17A2 2 0 0 0 18 19H22A2 2 0 0 0 24 17V5A2 2 0 0 0 22 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 11L12 8L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            教程分享
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ranking/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15A2 2 0 0 1 19 17H7L4 20V5A2 2 0 0 1 6 3H19A2 2 0 0 1 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 9H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 13H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            踩踩网站
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://ongwu.cn" class="nav-link" target="_blank">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 13A5 5 0 0 0 20 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 17A5 5 0 0 0 4 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 21L21 19L19 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5 3L3 5L5 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 5L19 3L17 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 19L5 21L3 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            其他开发中
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- 右侧功能按钮 -->
+            <div class="header-actions">
+                <!-- 搜索按钮 -->
+                <button class="search-btn" id="searchBtn" title="搜索">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- 主题切换按钮 -->
+                <button class="theme-toggle" id="themeToggle" title="切换主题">
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V5M12 19V21M5.314 5.314L6.728 6.728M17.272 17.272L18.686 18.686M3 12H5M19 12H21M6.728 17.272L5.314 18.686M18.686 5.314L17.272 6.728M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 搜索弹窗 -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-overlay" id="searchOverlay"></div>
+        <div class="search-container">
+            <div class="search-header">
+                <h3>搜索文章</h3>
+                <button class="search-close" id="searchClose">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" id="searchInput" placeholder="输入关键词搜索文章..." autocomplete="off">
+                <div class="search-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+</header>
+
+    
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <article class="post">
+    <div class="container">
+        <header class="post-header">
+            <h1 class="post-title">WaterfallGallery</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#666"/>
+                    </svg>
+                    2025年01月14日
+                </span>
+                
+                
+                <span class="post-tags">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z" fill="#666"/>
+                    </svg>
+                    
+                        <a href="/tags/ongwu插件/" class="tag-link">ongwu插件</a>
+                        , 
+                    
+                        <a href="/tags/瀑布流/" class="tag-link">瀑布流</a>
+                        , 
+                    
+                        <a href="/tags/相册/" class="tag-link">相册</a>
+                        
+                    
+                </span>
+                
+            </div>
+        </header>
+        
+        <div class="post-content">
+            <h1 id="WaterfallGallery-ongwu相册插件"><a href="#WaterfallGallery-ongwu相册插件" class="headerlink" title="WaterfallGallery - ongwu相册插件"></a>WaterfallGallery - ongwu相册插件</h1><h2 id="插件简介"><a href="#插件简介" class="headerlink" title="插件简介"></a>插件简介</h2><p>WaterfallGallery是一个专为ongwu博客系统开发的相册插件，支持瀑布流布局和多种展示模式。通过这个插件，你可以轻松地在博客中展示图片，支持图片懒加载、响应式布局等功能。</p>
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><h3 id="1-瀑布流布局"><a href="#1-瀑布流布局" class="headerlink" title="1. 瀑布流布局"></a>1. 瀑布流布局</h3><ul>
+<li>自动计算图片尺寸</li>
+<li>智能排列，充分利用空间</li>
+<li>支持不同宽度的图片混排</li>
+</ul>
+<h3 id="2-多种展示模式"><a href="#2-多种展示模式" class="headerlink" title="2. 多种展示模式"></a>2. 多种展示模式</h3><ul>
+<li>网格模式：整齐的网格排列</li>
+<li>瀑布流模式：动态高度排列</li>
+<li>幻灯片模式：全屏幻灯片展示</li>
+</ul>
+<h3 id="3-图片管理"><a href="#3-图片管理" class="headerlink" title="3. 图片管理"></a>3. 图片管理</h3><ul>
+<li>支持批量上传</li>
+<li>自动生成缩略图</li>
+<li>图片分类和标签</li>
+</ul>
+<h2 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h2><h3 id="前端技术"><a href="#前端技术" class="headerlink" title="前端技术"></a>前端技术</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 瀑布流布局算法</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">waterfallLayout</span>(<span class="params">container, items</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> containerWidth = container.<span class="property">offsetWidth</span>;</span><br><span class="line">    <span class="keyword">const</span> itemWidth = <span class="number">300</span>; <span class="comment">// 固定宽度</span></span><br><span class="line">    <span class="keyword">const</span> gap = <span class="number">20</span>; <span class="comment">// 间距</span></span><br><span class="line">    <span class="keyword">const</span> columns = <span class="title class_">Math</span>.<span class="title function_">floor</span>(containerWidth / (itemWidth + gap));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> heights = <span class="keyword">new</span> <span class="title class_">Array</span>(columns).<span class="title function_">fill</span>(<span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    items.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> minHeight = <span class="title class_">Math</span>.<span class="title function_">min</span>(...heights);</span><br><span class="line">        <span class="keyword">const</span> columnIndex = heights.<span class="title function_">indexOf</span>(minHeight);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">const</span> left = columnIndex * (itemWidth + gap);</span><br><span class="line">        <span class="keyword">const</span> top = minHeight;</span><br><span class="line">        </span><br><span class="line">        item.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;absolute&#x27;</span>;</span><br><span class="line">        item.<span class="property">style</span>.<span class="property">left</span> = left + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">        item.<span class="property">style</span>.<span class="property">top</span> = top + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">        </span><br><span class="line">        heights[columnIndex] += item.<span class="property">offsetHeight</span> + gap;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="后端实现"><a href="#后端实现" class="headerlink" title="后端实现"></a>后端实现</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WaterfallGallery_Plugin</span> <span class="keyword">implements</span> <span class="title">ongwu_Plugin_Interface</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">activate</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 创建数据表</span></span><br><span class="line">        <span class="variable">$db</span> = ongwu_<span class="title class_">Db</span>::<span class="title function_ invoke__">get</span>();</span><br><span class="line">        <span class="variable">$prefix</span> = <span class="variable">$db</span>-&gt;<span class="title function_ invoke__">getPrefix</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="variable">$sql</span> = <span class="string">&quot;CREATE TABLE IF NOT EXISTS `<span class="subst">&#123;$prefix&#125;</span>waterfall_gallery` (</span></span><br><span class="line"><span class="string">            `id` int(11) NOT NULL AUTO_INCREMENT,</span></span><br><span class="line"><span class="string">            `title` varchar(255) NOT NULL,</span></span><br><span class="line"><span class="string">            `description` text,</span></span><br><span class="line"><span class="string">            `image_url` varchar(500) NOT NULL,</span></span><br><span class="line"><span class="string">            `thumbnail_url` varchar(500),</span></span><br><span class="line"><span class="string">            `category` varchar(100),</span></span><br><span class="line"><span class="string">            `tags` text,</span></span><br><span class="line"><span class="string">            `created` int(11) NOT NULL,</span></span><br><span class="line"><span class="string">            `modified` int(11) NOT NULL,</span></span><br><span class="line"><span class="string">            PRIMARY KEY (`id`)</span></span><br><span class="line"><span class="string">        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;&quot;</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="variable">$db</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="variable">$sql</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">_t</span>(<span class="string">&#x27;插件启用成功&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">deactivate</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">_t</span>(<span class="string">&#x27;插件禁用成功&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><h3 id="1-下载插件"><a href="#1-下载插件" class="headerlink" title="1. 下载插件"></a>1. 下载插件</h3><p>从GitHub下载最新版本的插件文件。</p>
+<h3 id="2-上传文件"><a href="#2-上传文件" class="headerlink" title="2. 上传文件"></a>2. 上传文件</h3><p>将插件文件上传到ongwu的<code>usr/plugins/</code>目录。</p>
+<h3 id="3-启用插件"><a href="#3-启用插件" class="headerlink" title="3. 启用插件"></a>3. 启用插件</h3><p>在ongwu后台的”插件管理”中启用WaterfallGallery插件。</p>
+<h3 id="4-配置设置"><a href="#4-配置设置" class="headerlink" title="4. 配置设置"></a>4. 配置设置</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在模板中使用</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">widget</span>(<span class="string">&#x27;Widget_Archive@waterfall&#x27;</span>, <span class="string">&#x27;type=waterfall&#x27;</span>)-&gt;<span class="title function_ invoke__">to</span>(<span class="variable">$waterfall</span>); <span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">while</span>(<span class="variable">$waterfall</span>-&gt;<span class="title function_ invoke__">next</span>()): <span class="meta">?&gt;</span></span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span>=&quot;<span class="title">gallery</span>-<span class="title">item</span>&quot;&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">img</span> <span class="title">src</span>=&quot;&lt;?<span class="title">php</span> $<span class="title">waterfall</span>-&gt;<span class="title">imageUrl</span>(); ?&gt;&quot; <span class="title">alt</span>=&quot;&lt;?<span class="title">php</span> $<span class="title">waterfall</span>-&gt;<span class="title">title</span>(); ?&gt;&quot;&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">div</span> <span class="title">class</span>=&quot;<span class="title">gallery</span>-<span class="title">info</span>&quot;&gt;</span></span><br><span class="line"><span class="class">            &lt;<span class="title">h3</span>&gt;&lt;?<span class="title">php</span> $<span class="title">waterfall</span>-&gt;<span class="title">title</span>(); ?&gt;&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line"><span class="class">            &lt;<span class="title">p</span>&gt;&lt;?<span class="title">php</span> $<span class="title">waterfall</span>-&gt;<span class="title">description</span>(); ?&gt;&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class">&lt;?<span class="title">php</span> <span class="title">endwhile</span>; ?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><h3 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;waterfall-gallery&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;gallery-item&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/photo1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;照片1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;gallery-info&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h3</span>&gt;</span>美丽的风景<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一张美丽的风景照片<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 更多图片... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义样式"><a href="#自定义样式" class="headerlink" title="自定义样式"></a>自定义样式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.waterfall-gallery</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.gallery-item</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.1</span>);</span><br><span class="line">    <span class="attribute">transition</span>: transform <span class="number">0.3s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.gallery-item</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">5px</span>);</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">5px</span> <span class="number">20px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.15</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.gallery-item</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: auto;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.gallery-info</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.gallery-info</span> <span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.gallery-info</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1.4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><h3 id="1-图片懒加载"><a href="#1-图片懒加载" class="headerlink" title="1. 图片懒加载"></a>1. 图片懒加载</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用Intersection Observer API</span></span><br><span class="line"><span class="keyword">const</span> imageObserver = <span class="keyword">new</span> <span class="title class_">IntersectionObserver</span>(<span class="function">(<span class="params">entries, observer</span>) =&gt;</span> &#123;</span><br><span class="line">    entries.<span class="title function_">forEach</span>(<span class="function"><span class="params">entry</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (entry.<span class="property">isIntersecting</span>) &#123;</span><br><span class="line">            <span class="keyword">const</span> img = entry.<span class="property">target</span>;</span><br><span class="line">            img.<span class="property">src</span> = img.<span class="property">dataset</span>.<span class="property">src</span>;</span><br><span class="line">            img.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;lazy&#x27;</span>);</span><br><span class="line">            imageObserver.<span class="title function_">unobserve</span>(img);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;img[data-src]&#x27;</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">img</span> =&gt;</span> &#123;</span><br><span class="line">    imageObserver.<span class="title function_">observe</span>(img);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-缩略图优化"><a href="#2-缩略图优化" class="headerlink" title="2. 缩略图优化"></a>2. 缩略图优化</h3><ul>
+<li>自动生成多种尺寸的缩略图</li>
+<li>根据设备像素比选择合适的图片</li>
+<li>支持WebP格式</li>
+</ul>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Q-插件支持哪些图片格式？"><a href="#Q-插件支持哪些图片格式？" class="headerlink" title="Q: 插件支持哪些图片格式？"></a>Q: 插件支持哪些图片格式？</h3><p>A: 支持JPG、PNG、GIF、WebP等常见格式。</p>
+<h3 id="Q-如何自定义瀑布流的列数？"><a href="#Q-如何自定义瀑布流的列数？" class="headerlink" title="Q: 如何自定义瀑布流的列数？"></a>Q: 如何自定义瀑布流的列数？</h3><p>A: 可以通过CSS媒体查询或JavaScript动态调整。</p>
+<h3 id="Q-插件是否支持移动端？"><a href="#Q-插件是否支持移动端？" class="headerlink" title="Q: 插件是否支持移动端？"></a>Q: 插件是否支持移动端？</h3><p>A: 完全支持，采用响应式设计。</p>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h3 id="v1-2-0-2025-01-14"><a href="#v1-2-0-2025-01-14" class="headerlink" title="v1.2.0 (2025-01-14)"></a>v1.2.0 (2025-01-14)</h3><ul>
+<li>新增瀑布流布局算法</li>
+<li>优化图片懒加载性能</li>
+<li>修复移动端显示问题</li>
+</ul>
+<h3 id="v1-1-0-2025-01-10"><a href="#v1-1-0-2025-01-10" class="headerlink" title="v1.1.0 (2025-01-10)"></a>v1.1.0 (2025-01-10)</h3><ul>
+<li>新增多种展示模式</li>
+<li>支持图片分类和标签</li>
+<li>优化后台管理界面</li>
+</ul>
+<h3 id="v1-0-0-2025-01-05"><a href="#v1-0-0-2025-01-05" class="headerlink" title="v1.0.0 (2025-01-05)"></a>v1.0.0 (2025-01-05)</h3><ul>
+<li>初始版本发布</li>
+<li>基础相册功能</li>
+<li>响应式设计支持</li>
+</ul>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><ul>
+<li>GitHub: <a target="_blank" rel="noopener" href="https://github.com/username/waterfall-gallery">https://github.com/username/waterfall-gallery</a></li>
+<li>插件主页: <a target="_blank" rel="noopener" href="https://waterfall-gallery.ongwu.cn/">https://waterfall-gallery.ongwu.cn</a></li>
+</ul>
+<h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p>GPL v2</p>
+<hr>
+<p><em>WaterfallGallery - 让图片展示更优雅</em></p>
+
+        </div>
+        
+        <footer class="post-footer">
+            <div class="post-navigation">
+                
+                <a href="/2025/01/14/14/" class="prev-post">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="#666"/>
+                    </svg>
+                    WaterfallGallery
+                </a>
+                
+                
+                <a href="/2025/01/14/16/" class="next-post">
+                    WaterfallGallery
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#666"/>
+                    </svg>
+                </a>
+                
+            </div>
+        </footer>
+    </div>
+</article>
+
+    </main>
+    
+    <!-- 底部 -->
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="copyright">© 2025 Ongwu博客. All rights reserved | Powered by ongwu | Theme by ongwu</p>
+        </div>
+    </div>
+</footer>
+
+    
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
