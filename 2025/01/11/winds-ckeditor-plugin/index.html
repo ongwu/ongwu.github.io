@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindsCkEditor - ongwu博客</title>
+    <meta name="description" content="WindsCkEditor ongwu1.2编辑器插件，集成最新CkEditor4.21编辑器。支持代码插入，支持图片，附件上传。">
+    <meta name="keywords" content="Hexo, 博客, 技术, 作品, 教程">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.ico">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 头部 -->
+    <header class="header">
+    <div class="container">
+        <div class="header-content">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="/">
+                    <div class="logo-icon">
+                        <div class="logo-lines">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <span class="logo-text">ONGWU BLOG</span>
+                </a>
+            </div>
+            
+            <!-- 导航菜单 -->
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            首页
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/projects/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3H21V21H3V3ZM5 5V19H19V5H5ZM7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H13V17H7V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            项目作品
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tech/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            技术深究
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tutorial/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 3H6A2 2 0 0 1 8 5V17A2 2 0 0 1 6 19H2A2 2 0 0 1 0 17V5A2 2 0 0 1 2 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 3H18A2 2 0 0 0 16 5V17A2 2 0 0 0 18 19H22A2 2 0 0 0 24 17V5A2 2 0 0 0 22 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 11L12 8L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            教程分享
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ranking/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15A2 2 0 0 1 19 17H7L4 20V5A2 2 0 0 1 6 3H19A2 2 0 0 1 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 9H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 13H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            踩踩网站
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://ongwu.cn" class="nav-link" target="_blank">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 13A5 5 0 0 0 20 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 17A5 5 0 0 0 4 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 21L21 19L19 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5 3L3 5L5 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 5L19 3L17 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 19L5 21L3 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            其他开发中
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- 右侧功能按钮 -->
+            <div class="header-actions">
+                <!-- 搜索按钮 -->
+                <button class="search-btn" id="searchBtn" title="搜索">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- 主题切换按钮 -->
+                <button class="theme-toggle" id="themeToggle" title="切换主题">
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V5M12 19V21M5.314 5.314L6.728 6.728M17.272 17.272L18.686 18.686M3 12H5M19 12H21M6.728 17.272L5.314 18.686M18.686 5.314L17.272 6.728M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 搜索弹窗 -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-overlay" id="searchOverlay"></div>
+        <div class="search-container">
+            <div class="search-header">
+                <h3>搜索文章</h3>
+                <button class="search-close" id="searchClose">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" id="searchInput" placeholder="输入关键词搜索文章..." autocomplete="off">
+                <div class="search-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+</header>
+
+    
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <article class="post">
+    <div class="container">
+        <header class="post-header">
+            <h1 class="post-title">WindsCkEditor</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#666"/>
+                    </svg>
+                    2025年01月11日
+                </span>
+                
+                
+                <span class="post-tags">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z" fill="#666"/>
+                    </svg>
+                    
+                        <a href="/tags/ongwu插件/" class="tag-link">ongwu插件</a>
+                        , 
+                    
+                        <a href="/tags/编辑器/" class="tag-link">编辑器</a>
+                        , 
+                    
+                        <a href="/tags/CkEditor/" class="tag-link">CkEditor</a>
+                        , 
+                    
+                        <a href="/tags/富文本编辑/" class="tag-link">富文本编辑</a>
+                        
+                    
+                </span>
+                
+            </div>
+        </header>
+        
+        <div class="post-content">
+            <h1 id="WindsCkEditor-ongwu编辑器插件"><a href="#WindsCkEditor-ongwu编辑器插件" class="headerlink" title="WindsCkEditor - ongwu编辑器插件"></a>WindsCkEditor - ongwu编辑器插件</h1><h2 id="插件概述"><a href="#插件概述" class="headerlink" title="插件概述"></a>插件概述</h2><p>WindsCkEditor是一个专为ongwu 1.2开发的编辑器插件，集成了最新的CkEditor 4.21编辑器。该插件提供了强大的富文本编辑功能，让ongwu用户能够享受专业级的写作体验。</p>
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><h3 id="核心编辑功能"><a href="#核心编辑功能" class="headerlink" title="核心编辑功能"></a>核心编辑功能</h3><ul>
+<li><strong>富文本编辑</strong>：支持格式化文本、列表、表格等</li>
+<li><strong>代码插入</strong>：支持多种编程语言的语法高亮</li>
+<li><strong>图片管理</strong>：支持图片上传、插入和编辑</li>
+<li><strong>附件上传</strong>：完整的文件管理系统</li>
+</ul>
+<h3 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h3><ul>
+<li><strong>响应式设计</strong>：完美适配各种屏幕尺寸</li>
+<li><strong>自定义工具栏</strong>：可配置的编辑工具</li>
+<li><strong>主题支持</strong>：多种编辑器主题可选</li>
+<li><strong>插件扩展</strong>：支持第三方CkEditor插件</li>
+</ul>
+<h2 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h2><h3 id="前端技术"><a href="#前端技术" class="headerlink" title="前端技术"></a>前端技术</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 编辑器初始化配置</span></span><br><span class="line"><span class="variable constant_">CKEDITOR</span>.<span class="title function_">replace</span>(<span class="string">&#x27;content&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">height</span>: <span class="number">400</span>,</span><br><span class="line">    <span class="attr">toolbar</span>: [</span><br><span class="line">        &#123; <span class="attr">name</span>: <span class="string">&#x27;document&#x27;</span>, <span class="attr">items</span>: [<span class="string">&#x27;Source&#x27;</span>, <span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;Save&#x27;</span>, <span class="string">&#x27;NewPage&#x27;</span>, <span class="string">&#x27;Preview&#x27;</span>, <span class="string">&#x27;Print&#x27;</span>, <span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;Templates&#x27;</span>] &#125;,</span><br><span class="line">        &#123; <span class="attr">name</span>: <span class="string">&#x27;clipboard&#x27;</span>, <span class="attr">items</span>: [<span class="string">&#x27;Cut&#x27;</span>, <span class="string">&#x27;Copy&#x27;</span>, <span class="string">&#x27;Paste&#x27;</span>, <span class="string">&#x27;PasteText&#x27;</span>, <span class="string">&#x27;PasteFromWord&#x27;</span>, <span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;Undo&#x27;</span>, <span class="string">&#x27;Redo&#x27;</span>] &#125;,</span><br><span class="line">        &#123; <span class="attr">name</span>: <span class="string">&#x27;editing&#x27;</span>, <span class="attr">items</span>: [<span class="string">&#x27;Find&#x27;</span>, <span class="string">&#x27;Replace&#x27;</span>, <span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;SelectAll&#x27;</span>, <span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;SpellChecker&#x27;</span>, <span class="string">&#x27;Scayt&#x27;</span>] &#125;,</span><br><span class="line">        &#123; <span class="attr">name</span>: <span class="string">&#x27;forms&#x27;</span>, <span class="attr">items</span>: [<span class="string">&#x27;Form&#x27;</span>, <span class="string">&#x27;Checkbox&#x27;</span>, <span class="string">&#x27;Radio&#x27;</span>, <span class="string">&#x27;TextField&#x27;</span>, <span class="string">&#x27;Textarea&#x27;</span>, <span class="string">&#x27;Select&#x27;</span>, <span class="string">&#x27;Button&#x27;</span>, <span class="string">&#x27;ImageButton&#x27;</span>, <span class="string">&#x27;HiddenField&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="后端集成"><a href="#后端集成" class="headerlink" title="后端集成"></a>后端集成</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ongwu插件集成</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WindsCkEditor_Plugin</span> <span class="keyword">implements</span> <span class="title">ongwu_Plugin_Interface</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">activate</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 激活插件时的处理逻辑</span></span><br><span class="line">        <span class="title class_">Helper</span>::<span class="title function_ invoke__">addPanel</span>(<span class="number">1</span>, <span class="string">&#x27;WindsCkEditor/manage-posts.php&#x27;</span>, <span class="string">&#x27;编辑器管理&#x27;</span>, <span class="string">&#x27;管理编辑器设置&#x27;</span>, <span class="string">&#x27;administrator&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">_t</span>(<span class="string">&#x27;插件启用成功&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><h3 id="1-下载插件"><a href="#1-下载插件" class="headerlink" title="1. 下载插件"></a>1. 下载插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从GitHub下载</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/awinds/WindsCkEditor.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-安装到ongwu"><a href="#2-安装到ongwu" class="headerlink" title="2. 安装到ongwu"></a>2. 安装到ongwu</h3><ul>
+<li>将插件文件上传到 <code>usr/plugins/</code> 目录</li>
+<li>在后台启用插件</li>
+<li>配置编辑器选项</li>
+</ul>
+<h3 id="3-基本配置"><a href="#3-基本配置" class="headerlink" title="3. 基本配置"></a>3. 基本配置</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置文件示例</span></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">&#x27;editor_height&#x27;</span> =&gt; <span class="number">400</span>,</span><br><span class="line">    <span class="string">&#x27;toolbar_layout&#x27;</span> =&gt; <span class="string">&#x27;full&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;upload_path&#x27;</span> =&gt; <span class="string">&#x27;/usr/uploads/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;allowed_extensions&#x27;</span> =&gt; <span class="keyword">array</span>(<span class="string">&#x27;jpg&#x27;</span>, <span class="string">&#x27;png&#x27;</span>, <span class="string">&#x27;gif&#x27;</span>, <span class="string">&#x27;pdf&#x27;</span>, <span class="string">&#x27;doc&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用建议"><a href="#使用建议" class="headerlink" title="使用建议"></a>使用建议</h2><h3 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h3><ol>
+<li><strong>定期备份</strong>：编辑重要内容前先备份</li>
+<li><strong>图片优化</strong>：上传前压缩图片以提高加载速度</li>
+<li><strong>代码格式化</strong>：使用代码插入功能保持代码整洁</li>
+<li><strong>附件管理</strong>：定期清理未使用的附件文件</li>
+</ol>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>建议使用原有附件管理系统，便于文件管理</li>
+<li>编辑器中上传的附件需要单独管理</li>
+<li>定期更新CkEditor版本以获得安全补丁</li>
+</ul>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><ul>
+<li><strong>GitHub</strong>: <a target="_blank" rel="noopener" href="https://github.com/awinds/WindsCkEditor">https://github.com/awinds/WindsCkEditor</a></li>
+<li><strong>下载</strong>: 插件包可直接从GitHub下载</li>
+<li><strong>文档</strong>: 详细使用说明请参考README文件</li>
+</ul>
+<h2 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h2><p>如有问题或建议，欢迎通过以下方式联系：</p>
+<ul>
+<li>提交GitHub Issue</li>
+<li>参与社区讨论</li>
+<li>贡献代码改进</li>
+</ul>
+<hr>
+<p><em>WindsCkEditor让ongwu写作更专业、更高效！</em></p>
+
+        </div>
+        
+        <footer class="post-footer">
+            <div class="post-navigation">
+                
+                <a href="/2025/01/12/4/" class="prev-post">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="#666"/>
+                    </svg>
+                    Ongwu作品示例
+                </a>
+                
+                
+                <a href="/2025/01/10/gotify-notify-plugin/" class="next-post">
+                    GotifyNotify
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#666"/>
+                    </svg>
+                </a>
+                
+            </div>
+        </footer>
+    </div>
+</article>
+
+    </main>
+    
+    <!-- 底部 -->
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="copyright">© 2025 Ongwu博客. All rights reserved | Powered by ongwu | Theme by ongwu</p>
+        </div>
+    </div>
+</footer>
+
+    
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+</body>
+</html>
