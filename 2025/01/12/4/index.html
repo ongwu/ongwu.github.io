@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ongwu作品示例 - ongwu博客</title>
+    <title>Ongwu作品示例 - Ongwu博客 - 个人技术学习</title>
     <meta name="description" content="一个现代化的扁平设计博客主题，注重简洁和用户体验">
-    <meta name="keywords" content="Hexo, 博客, 技术, 作品, 教程">
+    <meta name="keywords" content="技术，生活，分享">
     
     <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css">
@@ -14,8 +14,10 @@
     <link rel="icon" href="/images/favicon.ico">
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
-    <!-- 头部 -->
-    <header class="header">
+    <!-- 页面内容包装器 -->
+    <div class="page-wrapper">
+        <!-- 头部 -->
+        <header class="header">
     <div class="container">
         <div class="header-content">
             <!-- Logo -->
@@ -166,10 +168,10 @@
     </div>
 </header>
 
-    
-    <!-- 主要内容 -->
-    <main class="main-content">
-        <article class="post">
+        
+        <!-- 主要内容 -->
+        <main class="main-content">
+            <article class="post">
     <div class="container">
         <header class="post-header">
             <h1 class="post-title">Ongwu作品示例</h1>
@@ -238,7 +240,7 @@
                 </a>
                 
                 
-                <a href="/2025/01/10/10/" class="next-post">
+                <a href="/2025/01/10/10 - 副本 (10)/" class="next-post">
                     GotifyNotify
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#666"/>
@@ -250,13 +252,35 @@
     </div>
 </article>
 
-    </main>
+        </main>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" title="返回顶部">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- 火箭主体 - 蓝色 -->
+            <path d="M12 2L10 8H8L6 12L8 16H10L12 22L14 16H16L18 12L16 8H14L12 2Z" fill="#3B82F6"/>
+            <!-- 火箭头部 - 白色 -->
+            <path d="M12 4L11 8H13L12 4Z" fill="white"/>
+            <!-- 火箭尾翼 - 白色 -->
+            <path d="M8 14L6 18L8 20L10 16H8Z" fill="white"/>
+            <path d="M16 14L18 18L16 20L14 16H16Z" fill="white"/>
+            <!-- 火箭窗户 - 深蓝色 -->
+            <circle cx="12" cy="10" r="1.5" fill="#1E40AF"/>
+            <!-- 火箭火焰 - 橙色 -->
+            <path d="M10 20L8 24H16L14 20H10Z" fill="#F59E0B"/>
+            <path d="M11 20L9 23H15L13 20H11Z" fill="#F97316"/>
+        </svg>
+    </button>
     
     <!-- 底部 -->
     <footer class="footer">
     <div class="container">
         <div class="footer-content">
-            <p class="copyright">© 2025 Ongwu博客. All rights reserved | Powered by ongwu | Theme by ongwu</p>
+            <!-- 版权信息 -->
+            <div class="footer-copyright">
+                <p class="copyright">© 2025  <a href="https://ongwu.cn">Ongwu博客</a> .All rights reserved | Powered by <a href="https://ongwu.cn">Ongwu</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/ongwu/ongwu-hexo-theme">ongwu-hexo-theme</a></p>
+            </div>
         </div>
     </div>
 </footer>
@@ -267,5 +291,30 @@
     
     <!-- 搜索功能 -->
     
+    
+    <!-- 返回顶部功能 -->
+    <script>
+    // 返回顶部功能
+    (function() {
+        const backToTop = document.getElementById('backToTop');
+        
+        // 监听滚动事件
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // 点击返回顶部
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

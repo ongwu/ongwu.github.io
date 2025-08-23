@@ -1,318 +1,23 @@
-// 主要JavaScript功能
-document.addEventListener('DOMContentLoaded', function() {
-    // 平滑滚动
-    initSmoothScroll();
+// 导航栏滚动效果
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
     
-    // 导航菜单高亮
-    initNavigationHighlight();
-    
-    // 返回顶部按钮
-    initBackToTop();
-    
-    // 图片懒加载
-    initLazyLoading();
-    
-    // 移动端菜单切换
-    initMobileMenu();
-});
-
-// 平滑滚动
-function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-}
-
-// 导航菜单高亮
-function initNavigationHighlight() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
-    
+    // 简化实现，只在滚动时添加/移除scrolled类
     window.addEventListener('scroll', () => {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-}
-
-// 返回顶部按钮
-function initBackToTop() {
-    const backToTopBtn = document.createElement('button');
-    backToTopBtn.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/>
-        </svg>
-    `;
-    backToTopBtn.className = 'back-to-top';
-    backToTopBtn.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: #3B82F6;
-        border: none;
-        border-radius: 50%;
-        color: white;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
-    `;
-    
-    document.body.appendChild(backToTopBtn);
-    
-    // 显示/隐藏按钮
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopBtn.style.opacity = '1';
-            backToTopBtn.style.visibility = 'visible';
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
         } else {
-            backToTopBtn.style.opacity = '0';
-            backToTopBtn.style.visibility = 'hidden';
+            header.classList.remove('scrolled');
         }
     });
     
-    // 点击返回顶部
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    
-    // 悬停效果
-    backToTopBtn.addEventListener('mouseenter', () => {
-        backToTopBtn.style.transform = 'scale(1.1)';
-        backToTopBtn.style.background = '#2563EB';
-    });
-    
-    backToTopBtn.addEventListener('mouseleave', () => {
-        backToTopBtn.style.transform = 'scale(1)';
-        backToTopBtn.style.background = '#3B82F6';
-    });
-}
-
-// 图片懒加载
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-        
-        images.forEach(img => imageObserver.observe(img));
-    } else {
-        // 降级处理
-        images.forEach(img => {
-            img.src = img.dataset.src;
-        });
+    // 初始检查
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
     }
 }
 
-// 移动端菜单切换
-function initMobileMenu() {
-    const header = document.querySelector('.header');
-    const nav = document.querySelector('.nav');
-    
-    // 创建移动端菜单按钮
-    const mobileMenuBtn = document.createElement('button');
-    mobileMenuBtn.className = 'mobile-menu-btn';
-    mobileMenuBtn.innerHTML = `
-        <span></span>
-        <span></span>
-        <span></span>
-    `;
-    mobileMenuBtn.style.cssText = `
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        flex-direction: column;
-        gap: 4px;
-    `;
-    
-    const spans = mobileMenuBtn.querySelectorAll('span');
-    spans.forEach(span => {
-        span.style.cssText = `
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: #333;
-            transition: all 0.3s ease;
-        `;
-    });
-    
-    header.querySelector('.header-content').appendChild(mobileMenuBtn);
-    
-    // 移动端样式
-    const mobileStyles = `
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: flex !important;
-            }
-            
-            .nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #fff;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-            }
-            
-            .nav.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .nav-menu {
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-            }
-            
-            .nav-item {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .nav-link {
-                display: block;
-                padding: 15px;
-                border-radius: 8px;
-                transition: background 0.3s ease;
-            }
-            
-            .nav-link:hover {
-                background: #f0f9ff;
-            }
-        }
-    `;
-    
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = mobileStyles;
-    document.head.appendChild(styleSheet);
-    
-    // 菜单切换
-    mobileMenuBtn.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        
-        // 按钮动画
-        if (nav.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        } else {
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
-    });
-    
-    // 点击外部关闭菜单
-    document.addEventListener('click', (e) => {
-        if (!header.contains(e.target)) {
-            nav.classList.remove('active');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
-    });
-}
-
-// 页面加载动画
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    
-    // 添加淡入动画
-    const fadeElements = document.querySelectorAll('.section, .post, .project-card, .tech-item, .tutorial-item');
-    fadeElements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'all 0.6s ease';
-        
-        setTimeout(() => {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, index * 100);
-    });
-});
-
-// 工具函数：防抖
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// 工具函数：节流
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-
-// 主题切换功能
+// 主题管理器
 class ThemeManager {
     constructor() {
         this.themeToggle = document.getElementById('themeToggle');
@@ -321,31 +26,30 @@ class ThemeManager {
     }
 
     init() {
+        // 应用保存的主题
         this.applyTheme(this.currentTheme);
-        this.themeToggle.addEventListener('click', () => this.toggleTheme());
+        
+        // 绑定切换事件
+        if (this.themeToggle) {
+            this.themeToggle.addEventListener('click', () => {
+                this.toggleTheme();
+            });
+        }
     }
 
     applyTheme(theme) {
-        if (theme === 'dark') {
-            document.body.classList.add('dark-theme');
-            this.themeToggle.querySelector('.sun-icon').style.display = 'none';
-            this.themeToggle.querySelector('.moon-icon').style.display = 'block';
-        } else {
-            document.body.classList.remove('dark-theme');
-            this.themeToggle.querySelector('.sun-icon').style.display = 'block';
-            this.themeToggle.querySelector('.moon-icon').style.display = 'none';
-        }
+        document.documentElement.setAttribute('data-theme', theme);
+        this.currentTheme = theme;
         localStorage.setItem('theme', theme);
     }
 
     toggleTheme() {
         const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-        this.currentTheme = newTheme;
         this.applyTheme(newTheme);
     }
 }
 
-// 搜索功能
+// 搜索管理器
 class SearchManager {
     constructor() {
         this.searchBtn = document.getElementById('searchBtn');
@@ -398,42 +102,35 @@ class SearchManager {
                 const postElements = document.querySelectorAll('.project-card, .tech-item, .tutorial-item');
                 postElements.forEach(element => {
                     const titleElement = element.querySelector('h3 a, .tech-title a, .tutorial-title a');
-                    const descriptionElement = element.querySelector('.project-description, .tech-subtitle, .tutorial-subtitle');
+                    const descElement = element.querySelector('.project-desc, .tech-desc, .tutorial-desc');
                     
                     if (titleElement) {
                         this.posts.push({
-                            title: titleElement.textContent.trim(),
-                            description: descriptionElement ? descriptionElement.textContent.trim() : '',
-                            url: titleElement.href,
-                            element: element,
-                            type: this.getPostType(element)
+                            title: titleElement.textContent,
+                            description: descElement ? descElement.textContent : '',
+                            content: element.textContent,
+                            url: titleElement.getAttribute('href'),
+                            type: this.getPostTypeFromUrl(titleElement.getAttribute('href'))
                         });
                     }
                 });
             });
     }
     
-    getExcerpt(content) {
-        // 去除 HTML 标签
-        const text = content.replace(/<[^>]+>/g, '');
-        // 返回前 150 个字符
-        return text.length > 150 ? text.substring(0, 150) + '...' : text;
+    getPostTypeFromUrl(url) {
+        if (url.includes('/projects/')) return 'project';
+        if (url.includes('/tech/')) return 'tech';
+        if (url.includes('/tutorial/')) return 'tutorial';
+        return 'post';
     }
     
-    getPostTypeFromUrl(url) {
-        if (url.includes('/projects/')) return '项目作品';
-        if (url.includes('/tech/')) return '技术深究';
-        if (url.includes('/tutorial/')) return '教程分享';
-        return '文章';
+    getExcerpt(content, length = 100) {
+        // 移除HTML标签
+        const text = content.replace(/<[^>]+>/g, '');
+        // 截取指定长度
+        return text.length > length ? text.substring(0, length) + '...' : text;
     }
-
-    getPostType(element) {
-        if (element.classList.contains('project-card')) return '项目作品';
-        if (element.classList.contains('tech-item')) return '技术深究';
-        if (element.classList.contains('tutorial-item')) return '教程分享';
-        return '文章';
-    }
-
+    
     loadSearchHistory() {
         try {
             const history = localStorage.getItem('searchHistory');
@@ -444,9 +141,8 @@ class SearchManager {
             console.warn('无法加载搜索历史:', error);
         }
     }
-
+    
     saveSearchHistory(query) {
-        if (!query.trim()) return;
         
         // 移除重复项并添加到开头
         this.searchHistory = this.searchHistory.filter(item => item !== query);
@@ -551,63 +247,60 @@ class SearchManager {
             return [];
         }
         
-        const lowerQuery = query.toLowerCase();
-        const results = this.posts.filter(post => {
-            return post.title.toLowerCase().includes(lowerQuery) ||
-                   (post.content && post.content.toLowerCase().includes(lowerQuery)) ||
-                   post.description.toLowerCase().includes(lowerQuery) ||
-                   post.type.toLowerCase().includes(lowerQuery);
-        });
+        query = query.toLowerCase();
         
-        // 根据匹配度排序
-        results.sort((a, b) => {
-            const aTitle = a.title.toLowerCase().includes(lowerQuery) ? 3 : 0;
-            const bTitle = b.title.toLowerCase().includes(lowerQuery) ? 3 : 0;
-            
-            const aContent = a.content && a.content.toLowerCase().includes(lowerQuery) ? 2 : 0;
-            const bContent = b.content && b.content.toLowerCase().includes(lowerQuery) ? 2 : 0;
-            
-            const aDesc = a.description.toLowerCase().includes(lowerQuery) ? 1 : 0;
-            const bDesc = b.description.toLowerCase().includes(lowerQuery) ? 1 : 0;
-            
-            return (bTitle + bContent + bDesc) - (aTitle + aContent + aDesc);
+        return this.posts.filter(post => {
+            const titleMatch = post.title.toLowerCase().includes(query);
+            const contentMatch = post.content.toLowerCase().includes(query);
+            return titleMatch || contentMatch;
         });
-        
-        return results.slice(0, 10); // 限制显示10个结果
     }
-
+    
     displayResults(results, query) {
-        this.searchSuggestions.style.display = 'none';
         this.searchResults.innerHTML = '';
+        this.searchSuggestions.style.display = 'none';
         
         if (results.length === 0) {
-            this.searchNoResults.style.display = 'block';
+            this.searchNoResults.style.display = 'flex';
             return;
         }
-
+        
         this.searchNoResults.style.display = 'none';
         
-        this.searchResults.innerHTML = results.map(post => `
-            <div class="search-result-item">
-                <div class="search-result-title">
-                    <a href="${post.url}" style="color: inherit; text-decoration: none;">${this.highlightText(post.title, query)}</a>
-                </div>
-                <div class="search-result-excerpt">${this.highlightText(post.description, query)}</div>
-                <div class="search-result-meta">
-                    <span style="color: #3b82f6; font-weight: 600;">${post.type}</span> • ${post.url}
-                </div>
-            </div>
-        `).join('');
+        results.forEach(result => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item';
+            
+            const typeLabel = this.getTypeLabel(result.type);
+            
+            resultItem.innerHTML = `
+                <a href="${result.url}" class="search-result-link">
+                    <div class="search-result-type">${typeLabel}</div>
+                    <div class="search-result-content">
+                        <h4 class="search-result-title">${this.highlightText(result.title, query)}</h4>
+                        <p class="search-result-desc">${this.highlightText(result.description, query)}</p>
+                    </div>
+                </a>
+            `;
+            
+            this.searchResults.appendChild(resultItem);
+        });
     }
-
+    
+    getTypeLabel(type) {
+        switch (type) {
+            case 'project': return '项目';
+            case 'tech': return '技术';
+            case 'tutorial': return '教程';
+            default: return '文章';
+        }
+    }
+    
     highlightText(text, query) {
         if (!query || !text) return text;
-        const regex = new RegExp(`(${this.escapeRegex(query)})`, 'gi');
-        return text.replace(regex, '<mark>$1</mark>');
-    }
-
-    escapeRegex(string) {
-        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<span class="highlight">$1</span>');
     }
 }
 
@@ -653,33 +346,6 @@ class GuestbookManager {
         }
     }
 
-    // 手动测试回复功能（调试用）
-    testReplyFunction() {
-        console.log('=== 测试回复功能 ===');
-        console.log('当前评论数量:', this.comments.length);
-        console.log('当前replyingTo:', this.replyingTo);
-        
-        if (this.comments.length > 0) {
-            const firstComment = this.comments[0];
-            console.log('第一条评论:', firstComment);
-            console.log('第一条评论的回复数量:', firstComment.replies.length);
-            
-            // 尝试添加测试回复
-            const testReply = {
-                id: Date.now(),
-                username: '测试用户',
-                content: '这是一条测试回复',
-                date: new Date()
-            };
-            
-            firstComment.replies.push(testReply);
-            this.saveComments();
-            
-            console.log('添加测试回复后:', firstComment);
-            console.log('localStorage中的数据:', localStorage.getItem('guestbookComments'));
-        }
-    }
-
     // 生成验证码
     generateCaptcha() {
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -688,7 +354,10 @@ class GuestbookManager {
             result += chars.charAt(Math.floor(Math.random() * chars.length));
         }
         this.currentCaptcha = result;
-        document.getElementById('captchaText').textContent = result;
+        const captchaText = document.getElementById('captchaText');
+        if (captchaText) {
+            captchaText.textContent = result;
+        }
     }
 
     // 生成回复验证码
@@ -699,68 +368,91 @@ class GuestbookManager {
             result += chars.charAt(Math.floor(Math.random() * chars.length));
         }
         this.replyCaptcha = result;
-        document.getElementById('replyCaptchaText').textContent = result;
+        const replyCaptchaText = document.getElementById('replyCaptchaText');
+        if (replyCaptchaText) {
+            replyCaptchaText.textContent = result;
+        }
     }
 
     // 绑定事件
     bindEvents() {
-        // 评论表单提交
-        document.getElementById('commentForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.submitComment();
-        });
+        const commentForm = document.getElementById('commentForm');
+        if (commentForm) {
+            commentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.submitComment();
+            });
+        }
 
-        // 回复表单提交
-        document.getElementById('replyForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.submitReply();
-        });
+        const replyForm = document.getElementById('replyForm');
+        if (replyForm) {
+            replyForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.submitReply();
+            });
+        }
 
-        // 刷新验证码
-        document.getElementById('refreshCaptcha').addEventListener('click', () => {
-            this.generateCaptcha();
-        });
+        const refreshCaptcha = document.getElementById('refreshCaptcha');
+        if (refreshCaptcha) {
+            refreshCaptcha.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.generateCaptcha();
+            });
+        }
 
-        // 刷新回复验证码
-        document.getElementById('refreshReplyCaptcha').addEventListener('click', () => {
-            this.generateReplyCaptcha();
-        });
+        const refreshReplyCaptcha = document.getElementById('refreshReplyCaptcha');
+        if (refreshReplyCaptcha) {
+            refreshReplyCaptcha.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.generateReplyCaptcha();
+            });
+        }
 
-        // 排序选择
-        document.getElementById('sortOrder').addEventListener('change', (e) => {
-            this.sortComments(e.target.value);
-            this.renderComments();
-            this.renderPagination();
-        });
+        const sortOrder = document.getElementById('sortOrder');
+        if (sortOrder) {
+            sortOrder.addEventListener('change', (e) => {
+                this.sortComments(e.target.value);
+                this.renderComments();
+                this.renderPagination();
+            });
+        }
 
-        // 关闭回复模态框
-        document.getElementById('replyClose').addEventListener('click', () => {
-            this.closeReplyModal();
-        });
-
-        document.getElementById('cancelReply').addEventListener('click', () => {
-            this.closeReplyModal();
-        });
-
-        document.getElementById('replyOverlay').addEventListener('click', () => {
-            this.closeReplyModal();
-        });
-
-        // 防止回复模态框意外关闭
-        document.getElementById('replyModal').addEventListener('click', (e) => {
-            if (e.target.id === 'replyModal') {
+        const replyClose = document.getElementById('replyClose');
+        if (replyClose) {
+            replyClose.addEventListener('click', () => {
                 this.closeReplyModal();
-            }
-        });
+            });
+        }
+
+        const cancelReply = document.getElementById('cancelReply');
+        if (cancelReply) {
+            cancelReply.addEventListener('click', () => {
+                this.closeReplyModal();
+            });
+        }
+
+        const replyOverlay = document.getElementById('replyOverlay');
+        if (replyOverlay) {
+            replyOverlay.addEventListener('click', () => {
+                this.closeReplyModal();
+            });
+        }
+
+        const replyModal = document.getElementById('replyModal');
+        if (replyModal) {
+            replyModal.addEventListener('click', (e) => {
+                if (e.target.id === 'replyModal') {
+                    this.closeReplyModal();
+                }
+            });
+        }
     }
 
-    // 加载评论数据（模拟数据）
+    // 加载评论数据
     loadComments() {
-        // 从localStorage加载评论，如果没有则使用示例数据
         const savedComments = localStorage.getItem('guestbookComments');
         if (savedComments) {
             this.comments = JSON.parse(savedComments);
-            console.log('从localStorage加载评论:', this.comments);
         } else {
             // 示例评论数据
             this.comments = [
@@ -801,14 +493,16 @@ class GuestbookManager {
                 }
             ];
             this.saveComments();
-            console.log('使用示例评论数据:', this.comments);
         }
     }
 
     // 保存评论到localStorage
     saveComments() {
-        localStorage.setItem('guestbookComments', JSON.stringify(this.comments));
-        console.log('评论已保存到localStorage:', this.comments);
+        try {
+            localStorage.setItem('guestbookComments', JSON.stringify(this.comments));
+        } catch (error) {
+            console.error('无法保存评论:', error);
+        }
     }
 
     // 提交评论
@@ -822,7 +516,7 @@ class GuestbookManager {
             return;
         }
 
-        if (captcha.toUpperCase() !== this.currentCaptcha) {
+        if (captcha.toUpperCase() !== this.currentCaptcha.toUpperCase()) {
             alert('验证码错误，请重新输入');
             this.generateCaptcha();
             document.getElementById('captcha').value = '';
@@ -831,19 +525,14 @@ class GuestbookManager {
 
         const newComment = {
             id: Date.now(),
-            username: username.trim(),
-            content: content.trim(),
+            username: username,
+            content: content,
             date: new Date(),
             replies: []
         };
 
         this.comments.unshift(newComment);
         this.saveComments();
-        
-        // 验证评论是否真的被保存了
-        const savedComments = localStorage.getItem('guestbookComments');
-        console.log('localStorage中的最新数据:', JSON.parse(savedComments));
-        
         this.renderComments();
         this.renderPagination();
 
@@ -852,8 +541,6 @@ class GuestbookManager {
         document.getElementById('comment').value = '';
         document.getElementById('captcha').value = '';
         this.generateCaptcha();
-
-        alert('留言发表成功！');
     }
 
     // 提交回复
@@ -867,7 +554,7 @@ class GuestbookManager {
             return;
         }
 
-        if (captcha.toUpperCase() !== this.replyCaptcha) {
+        if (captcha.toUpperCase() !== this.replyCaptcha.toUpperCase()) {
             alert('验证码错误，请重新输入');
             this.generateReplyCaptcha();
             document.getElementById('replyCaptcha').value = '';
@@ -875,68 +562,45 @@ class GuestbookManager {
         }
 
         if (!this.replyingTo) {
-            alert('回复失败，请重新尝试');
+            alert('回复目标不存在');
+            this.closeReplyModal();
             return;
         }
 
         const newReply = {
             id: Date.now(),
-            username: username.trim(),
-            content: content.trim(),
+            username: username,
+            content: content,
             date: new Date()
         };
 
-        // 找到对应的评论并添加回复
         const commentIndex = this.comments.findIndex(c => c.id === this.replyingTo.id);
         if (commentIndex !== -1) {
             this.comments[commentIndex].replies.push(newReply);
             this.saveComments();
-            
-            // 验证回复是否真的被保存了
-            const savedComments = localStorage.getItem('guestbookComments');
-            console.log('localStorage中的最新数据:', JSON.parse(savedComments));
-            
             this.renderComments();
-            this.renderPagination();
             this.closeReplyModal();
-            alert('回复发表成功！');
-            
-            // 调试信息
-            console.log('回复已保存:', newReply);
-            console.log('评论更新:', this.comments[commentIndex]);
-        } else {
-            console.error('找不到要回复的评论:', this.replyingTo);
-            alert('回复失败，请重新尝试');
         }
     }
 
     // 打开回复模态框
     openReplyModal(comment) {
         if (!comment || !comment.id) {
-            alert('无法回复此评论');
             return;
         }
-        
-        this.replyingTo = { ...comment }; // 创建评论的副本
-        this.generateReplyCaptcha();
+
+        this.replyingTo = { ...comment };
         document.getElementById('replyModal').classList.add('active');
-        document.getElementById('replyUsername').focus();
-        document.body.style.overflow = 'hidden';
-        
-        // 调试信息
-        console.log('打开回复模态框:', comment);
-        console.log('当前replyingTo:', this.replyingTo);
+        document.getElementById('replyUsername').value = '';
+        document.getElementById('replyContent').value = '';
+        document.getElementById('replyCaptcha').value = '';
+        this.generateReplyCaptcha();
     }
 
     // 关闭回复模态框
     closeReplyModal() {
         document.getElementById('replyModal').classList.remove('active');
-        document.getElementById('replyForm').reset();
         this.replyingTo = null;
-        document.body.style.overflow = '';
-        
-        // 调试信息
-        console.log('回复模态框已关闭，replyingTo已重置');
     }
 
     // 排序评论
@@ -953,25 +617,26 @@ class GuestbookManager {
         const startIndex = (this.currentPage - 1) * this.commentsPerPage;
         const endIndex = startIndex + this.commentsPerPage;
         const pageComments = this.comments.slice(startIndex, endIndex);
-
         const commentsList = document.getElementById('commentsList');
+        
+        if (!commentsList) return;
+        
         commentsList.innerHTML = '';
-
+        
         if (pageComments.length === 0) {
             commentsList.innerHTML = '<div class="no-comments">还没有留言，快来发表第一条留言吧！</div>';
             return;
         }
-
+        
         pageComments.forEach(comment => {
             const commentElement = this.createCommentElement(comment);
             commentsList.appendChild(commentElement);
         });
-
-        // 更新总数
-        document.getElementById('totalComments').textContent = this.comments.length;
         
-        // 调试信息
-        console.log('评论列表已渲染，当前页评论:', pageComments);
+        const totalComments = document.getElementById('totalComments');
+        if (totalComments) {
+            totalComments.textContent = this.comments.length;
+        }
     }
 
     // 创建评论元素
@@ -979,220 +644,176 @@ class GuestbookManager {
         const commentDiv = document.createElement('div');
         commentDiv.className = 'comment-item';
         
-        // 创建回复按钮
-        const replyBtn = document.createElement('button');
-        replyBtn.className = 'reply-btn';
-        replyBtn.innerHTML = `
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            回复
-        `;
-        
-        // 绑定回复事件
-        replyBtn.addEventListener('click', () => {
-            this.openReplyModal(comment);
-        });
-        
         commentDiv.innerHTML = `
             <div class="comment-header">
+                <span class="comment-author">${this.escapeHtml(comment.username)}</span>
                 <span class="comment-date">${this.formatDate(comment.date)}</span>
             </div>
-            <div class="comment-main">
-                <span class="comment-author">${this.escapeHtml(comment.username)}</span>
-                <div class="comment-content">${this.escapeHtml(comment.content)}</div>
-            </div>
+            <div class="comment-content">${this.escapeHtml(comment.content)}</div>
             <div class="comment-actions">
+                <button class="reply-btn" data-id="${comment.id}">回复</button>
             </div>
             ${comment.replies.length > 0 ? this.createRepliesSection(comment.replies) : ''}
         `;
         
-        // 将回复按钮添加到comment-actions中
-        const actionsDiv = commentDiv.querySelector('.comment-actions');
-        actionsDiv.appendChild(replyBtn);
+        // 绑定回复按钮事件
+        const replyBtn = commentDiv.querySelector('.reply-btn');
+        replyBtn.addEventListener('click', () => {
+            this.openReplyModal(comment);
+        });
         
         return commentDiv;
     }
 
     // 创建回复区域
     createRepliesSection(replies) {
-        if (!replies || replies.length === 0) {
-            return '';
-        }
-        
-        const repliesDiv = document.createElement('div');
-        repliesDiv.className = 'replies-section';
-        
-        replies.forEach(reply => {
-            const replyDiv = document.createElement('div');
-            replyDiv.className = 'reply-item';
-            replyDiv.innerHTML = `
-                <div class="reply-header">
-                    <span class="reply-date">${this.formatDate(reply.date)}</span>
-                </div>
-                <div class="reply-main">
-                    <span class="reply-author">${this.escapeHtml(reply.username)}</span>
-                    <div class="reply-content">${this.escapeHtml(reply.content)}</div>
-                </div>
-            `;
-            repliesDiv.appendChild(replyDiv);
-        });
-
-        return repliesDiv.outerHTML;
+        return `
+            <div class="comment-replies">
+                ${replies.map(reply => `
+                    <div class="reply-item">
+                        <div class="reply-header">
+                            <span class="reply-author">${this.escapeHtml(reply.username)}</span>
+                            <span class="reply-date">${this.formatDate(reply.date)}</span>
+                        </div>
+                        <div class="reply-content">${this.escapeHtml(reply.content)}</div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
     }
 
     // 渲染分页
     renderPagination() {
-        const totalPages = Math.ceil(this.comments.length / this.commentsPerPage);
         const pagination = document.getElementById('pagination');
+        if (!pagination) return;
+        
+        const totalPages = Math.ceil(this.comments.length / this.commentsPerPage);
         
         if (totalPages <= 1) {
             pagination.innerHTML = '';
             return;
         }
-
+        
         let paginationHTML = '';
-
+        
         // 上一页按钮
         paginationHTML += `
-            <button class="page-btn" ${this.currentPage === 1 ? 'disabled' : ''} onclick="guestbook.goToPage(${this.currentPage - 1})">
+            <button class="page-btn prev-page ${this.currentPage === 1 ? 'disabled' : ''}" 
+                    ${this.currentPage === 1 ? 'disabled' : ''}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/>
+                </svg>
                 上一页
             </button>
         `;
-
+        
         // 页码按钮
-        for (let i = 1; i <= totalPages; i++) {
-            if (i === 1 || i === totalPages || (i >= this.currentPage - 2 && i <= this.currentPage + 2)) {
-                paginationHTML += `
-                    <button class="page-btn ${i === this.currentPage ? 'active' : ''}" onclick="guestbook.goToPage(${i})">
-                        ${i}
-                    </button>
-                `;
-            } else if (i === this.currentPage - 3 || i === this.currentPage + 3) {
-                paginationHTML += '<span class="page-ellipsis">...</span>';
-            }
+        const maxVisiblePages = 5;
+        let startPage = Math.max(1, this.currentPage - Math.floor(maxVisiblePages / 2));
+        let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+        
+        if (endPage - startPage + 1 < maxVisiblePages) {
+            startPage = Math.max(1, endPage - maxVisiblePages + 1);
         }
-
+        
+        for (let i = startPage; i <= endPage; i++) {
+            paginationHTML += `
+                <button class="page-btn page-number ${i === this.currentPage ? 'active' : ''}" 
+                        data-page="${i}">
+                    ${i}
+                </button>
+            `;
+        }
+        
         // 下一页按钮
         paginationHTML += `
-            <button class="page-btn" ${this.currentPage === totalPages ? 'disabled' : ''} onclick="guestbook.goToPage(${this.currentPage + 1})">
+            <button class="page-btn next-page ${this.currentPage === totalPages ? 'disabled' : ''}" 
+                    ${this.currentPage === totalPages ? 'disabled' : ''}>
                 下一页
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/>
+                </svg>
             </button>
         `;
-
+        
         pagination.innerHTML = paginationHTML;
-    }
-
-    // 跳转到指定页面
-    goToPage(page) {
-        const totalPages = Math.ceil(this.comments.length / this.commentsPerPage);
-        if (page < 1 || page > totalPages) return;
         
-        this.currentPage = page;
-        this.renderComments();
-        this.renderPagination();
+        // 绑定分页事件
+        const pageButtons = pagination.querySelectorAll('.page-number');
+        pageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                this.currentPage = parseInt(button.getAttribute('data-page'));
+                this.renderComments();
+                this.renderPagination();
+                document.getElementById('commentsList').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
         
-        // 滚动到评论列表顶部
-        document.getElementById('commentsList').scrollIntoView({ behavior: 'smooth' });
+        const prevButton = pagination.querySelector('.prev-page:not(.disabled)');
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                this.currentPage--;
+                this.renderComments();
+                this.renderPagination();
+                document.getElementById('commentsList').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+        
+        const nextButton = pagination.querySelector('.next-page:not(.disabled)');
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                this.currentPage++;
+                this.renderComments();
+                this.renderPagination();
+                document.getElementById('commentsList').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
     }
 
     // 格式化日期
     formatDate(date) {
-        const now = new Date();
-        const diff = now - new Date(date);
-        const minutes = Math.floor(diff / 60000);
-        const hours = Math.floor(diff / 3600000);
-        const days = Math.floor(diff / 86400000);
-
-        if (minutes < 1) return '刚刚';
-        if (minutes < 60) return `${minutes}分钟前`;
-        if (hours < 24) return `${hours}小时前`;
-        if (days < 7) return `${days}天前`;
+        if (typeof date === 'string') {
+            date = new Date(date);
+        }
         
-        return new Date(date).toLocaleDateString('zh-CN', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit'
-        });
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        
+        return `${year}-${month}-${day} ${hours}:${minutes}`;
     }
 
-    // HTML转义，防止XSS攻击
+    // HTML转义
     escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        
+        return text.replace(/[&<>"']/g, m => map[m]);
     }
 }
 
-// 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', () => {
-    new ThemeManager();
-    new SearchManager();
+// 初始化
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化导航栏滚动效果
+    initHeaderScroll();
     
-    // 如果当前页面是留言板页面，初始化留言板功能
-    if (window.location.pathname.includes('/ranking/')) {
-        window.guestbook = new GuestbookManager();
-        
-        // 暴露测试方法到全局，方便调试
-        window.testReply = () => window.guestbook.testReplyFunction();
-        console.log('留言板功能已初始化，可以使用 window.testReply() 来测试回复功能');
+    // 初始化主题切换功能
+    new ThemeManager();
+    
+    // 初始化搜索功能
+    if (document.getElementById('searchBtn')) {
+        new SearchManager();
+    }
+    
+    // 初始化留言板功能
+    if (document.getElementById('commentForm')) {
+        new GuestbookManager();
     }
 });
-
-// 添加一些额外的深色主题样式
-const additionalDarkStyles = `
-    body.dark-theme .project-preview {
-        background: #404040;
-    }
-    
-    body.dark-theme .tech-icon,
-    body.dark-theme .tutorial-icon {
-        background: #404040;
-    }
-    
-    body.dark-theme .footer {
-        background: #2d2d2d;
-        border-top-color: #404040;
-    }
-    
-    body.dark-theme .post-item,
-    body.dark-theme .ranking-item {
-        background: #2d2d2d;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-    
-    body.dark-theme .post-item:hover,
-    body.dark-theme .ranking-item:hover {
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-    }
-    
-    body.dark-theme .post-item .post-title a,
-    body.dark-theme .ranking-item .post-title a {
-        color: #e5e5e5;
-    }
-    
-    body.dark-theme .post-item .post-excerpt,
-    body.dark-theme .ranking-item .post-excerpt {
-        color: #a3a3a3;
-    }
-    
-    body.dark-theme .post-item .post-meta,
-    body.dark-theme .ranking-item .post-meta {
-        color: #737373;
-    }
-    
-    body.dark-theme .more-link {
-        color: #60a5fa;
-    }
-    
-    body.dark-theme .more-link:hover {
-        color: #93c5fd;
-    }
-`;
-
-// 动态添加深色主题样式
-const styleSheet = document.createElement('style');
-styleSheet.textContent = additionalDarkStyles;
-document.head.appendChild(styleSheet);
