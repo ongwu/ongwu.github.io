@@ -354,32 +354,114 @@ class SearchManager {
         this.searchClose = document.getElementById('searchClose');
         this.searchInput = document.getElementById('searchInput');
         this.searchResults = document.getElementById('searchResults');
+        this.searchSuggestions = document.getElementById('searchSuggestions');
+        this.searchNoResults = document.getElementById('searchNoResults');
         this.posts = [];
+        this.searchHistory = [];
         this.init();
     }
 
     init() {
         this.loadPosts();
+        this.loadSearchHistory();
         this.bindEvents();
         this.bindKeyboardEvents();
     }
 
     loadPosts() {
-        // 获取所有文章数据
-        const postElements = document.querySelectorAll('.project-card, .tech-item, .tutorial-item');
-        postElements.forEach(element => {
-            const titleElement = element.querySelector('h3 a, .tech-title a, .tutorial-title a');
-            const descriptionElement = element.querySelector('.project-description, .tech-subtitle, .tutorial-subtitle');
-            
-            if (titleElement) {
-                this.posts.push({
-                    title: titleElement.textContent.trim(),
-                    description: descriptionElement ? descriptionElement.textContent.trim() : '',
-                    url: titleElement.href,
-                    element: element
+        // 从 search.xml 加载文章数据
+        fetch('/search.xml')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, 'text/xml');
+                const entries = xmlDoc.getElementsByTagName('entry');
+                
+                for (let i = 0; i < entries.length; i++) {
+                    const entry = entries[i];
+                    const title = entry.getElementsByTagName('title')[0].textContent;
+                    const content = entry.getElementsByTagName('content')[0].textContent;
+                    const url = entry.getElementsByTagName('url')[0].textContent;
+                    
+                    this.posts.push({
+                        title: title,
+                        description: this.getExcerpt(content),
+                        content: content,
+                        url: url,
+                        type: this.getPostTypeFromUrl(url)
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('无法加载搜索数据:', error);
+                // 回退到原始方法
+                const postElements = document.querySelectorAll('.project-card, .tech-item, .tutorial-item');
+                postElements.forEach(element => {
+                    const titleElement = element.querySelector('h3 a, .tech-title a, .tutorial-title a');
+                    const descriptionElement = element.querySelector('.project-description, .tech-subtitle, .tutorial-subtitle');
+                    
+                    if (titleElement) {
+                        this.posts.push({
+                            title: titleElement.textContent.trim(),
+                            description: descriptionElement ? descriptionElement.textContent.trim() : '',
+                            url: titleElement.href,
+                            element: element,
+                            type: this.getPostType(element)
+                        });
+                    }
                 });
+            });
+    }
+    
+    getExcerpt(content) {
+        // 去除 HTML 标签
+        const text = content.replace(/<[^>]+>/g, '');
+        // 返回前 150 个字符
+        return text.length > 150 ? text.substring(0, 150) + '...' : text;
+    }
+    
+    getPostTypeFromUrl(url) {
+        if (url.includes('/projects/')) return '项目作品';
+        if (url.includes('/tech/')) return '技术深究';
+        if (url.includes('/tutorial/')) return '教程分享';
+        return '文章';
+    }
+
+    getPostType(element) {
+        if (element.classList.contains('project-card')) return '项目作品';
+        if (element.classList.contains('tech-item')) return '技术深究';
+        if (element.classList.contains('tutorial-item')) return '教程分享';
+        return '文章';
+    }
+
+    loadSearchHistory() {
+        try {
+            const history = localStorage.getItem('searchHistory');
+            if (history) {
+                this.searchHistory = JSON.parse(history);
             }
-        });
+        } catch (error) {
+            console.warn('无法加载搜索历史:', error);
+        }
+    }
+
+    saveSearchHistory(query) {
+        if (!query.trim()) return;
+        
+        // 移除重复项并添加到开头
+        this.searchHistory = this.searchHistory.filter(item => item !== query);
+        this.searchHistory.unshift(query);
+        
+        // 限制历史记录数量
+        if (this.searchHistory.length > 10) {
+            this.searchHistory = this.searchHistory.slice(0, 10);
+        }
+        
+        try {
+            localStorage.setItem('searchHistory', JSON.stringify(this.searchHistory));
+        } catch (error) {
+            console.warn('无法保存搜索历史:', error);
+        }
     }
 
     bindEvents() {
@@ -387,6 +469,16 @@ class SearchManager {
         this.searchClose.addEventListener('click', () => this.closeSearch());
         this.searchOverlay.addEventListener('click', () => this.closeSearch());
         this.searchInput.addEventListener('input', (e) => this.handleSearch(e.target.value));
+        
+        // 绑定搜索建议标签点击事件
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('suggestion-tag')) {
+                const tag = e.target.getAttribute('data-tag');
+                this.searchInput.value = tag;
+                // 跳转到搜索结果页面
+                this.performSearch(tag);
+            }
+        });
     }
 
     bindKeyboardEvents() {
@@ -398,6 +490,9 @@ class SearchManager {
                 e.preventDefault();
                 this.openSearch();
             }
+            if (e.key === 'Enter' && this.searchModal.classList.contains('active')) {
+                this.performSearch();
+            }
         });
     }
 
@@ -405,52 +500,114 @@ class SearchManager {
         this.searchModal.classList.add('active');
         this.searchInput.focus();
         document.body.style.overflow = 'hidden';
+        
+        // 显示搜索建议
+        this.showSuggestions();
+        
+        // CSS 已经处理了 .search-modal 和 .search-container 的淡入动画
+        // 移除 setTimeout 中的 transform 和 opacity 调整，让 CSS 负责
     }
 
     closeSearch() {
-        this.searchModal.classList.remove('active');
-        this.searchInput.value = '';
+        // CSS 已经处理了 .search-modal 和 .search-container 的淡出动画
+        // 等待 CSS 动画完成后再移除 active 类和清理内容
+        setTimeout(() => {
+            this.searchModal.classList.remove('active');
+            this.searchInput.value = '';
+            this.searchResults.innerHTML = '';
+            this.searchNoResults.style.display = 'none';
+            this.searchSuggestions.style.display = 'block';
+            document.body.style.overflow = '';
+        }, 300);
+    }
+
+    showSuggestions() {
+        this.searchSuggestions.style.display = 'block';
         this.searchResults.innerHTML = '';
-        document.body.style.overflow = '';
+        this.searchNoResults.style.display = 'none';
     }
 
     handleSearch(query) {
         if (!query.trim()) {
-            this.searchResults.innerHTML = '';
+            this.showSuggestions();
             return;
         }
 
         const results = this.searchPosts(query);
-        this.displayResults(results);
+        this.displayResults(results, query);
+    }
+
+    performSearch(customQuery) {
+        const query = customQuery || this.searchInput.value.trim();
+        if (query) {
+            this.saveSearchHistory(query);
+            // 跳转到搜索结果页面
+            window.location.href = `/search/?q=${encodeURIComponent(query)}`;
+        }
     }
 
     searchPosts(query) {
+        if (!query || query.length < 2) {
+            return [];
+        }
+        
         const lowerQuery = query.toLowerCase();
-        return this.posts.filter(post => {
+        const results = this.posts.filter(post => {
             return post.title.toLowerCase().includes(lowerQuery) ||
-                   post.description.toLowerCase().includes(lowerQuery);
-        }).slice(0, 10); // 限制显示10个结果
+                   (post.content && post.content.toLowerCase().includes(lowerQuery)) ||
+                   post.description.toLowerCase().includes(lowerQuery) ||
+                   post.type.toLowerCase().includes(lowerQuery);
+        });
+        
+        // 根据匹配度排序
+        results.sort((a, b) => {
+            const aTitle = a.title.toLowerCase().includes(lowerQuery) ? 3 : 0;
+            const bTitle = b.title.toLowerCase().includes(lowerQuery) ? 3 : 0;
+            
+            const aContent = a.content && a.content.toLowerCase().includes(lowerQuery) ? 2 : 0;
+            const bContent = b.content && b.content.toLowerCase().includes(lowerQuery) ? 2 : 0;
+            
+            const aDesc = a.description.toLowerCase().includes(lowerQuery) ? 1 : 0;
+            const bDesc = b.description.toLowerCase().includes(lowerQuery) ? 1 : 0;
+            
+            return (bTitle + bContent + bDesc) - (aTitle + aContent + aDesc);
+        });
+        
+        return results.slice(0, 10); // 限制显示10个结果
     }
 
-    displayResults(results) {
+    displayResults(results, query) {
+        this.searchSuggestions.style.display = 'none';
+        this.searchResults.innerHTML = '';
+        
         if (results.length === 0) {
-            this.searchResults.innerHTML = '<div class="search-result-item"><p>未找到相关文章</p></div>';
+            this.searchNoResults.style.display = 'block';
             return;
         }
 
+        this.searchNoResults.style.display = 'none';
+        
         this.searchResults.innerHTML = results.map(post => `
-            <div class="search-result-item" onclick="window.location.href='${post.url}'">
-                <div class="search-result-title">${this.highlightText(post.title, this.searchInput.value)}</div>
-                <div class="search-result-excerpt">${this.highlightText(post.description, this.searchInput.value)}</div>
-                <div class="search-result-meta">${post.url}</div>
+            <div class="search-result-item">
+                <div class="search-result-title">
+                    <a href="${post.url}" style="color: inherit; text-decoration: none;">${this.highlightText(post.title, query)}</a>
+                </div>
+                <div class="search-result-excerpt">${this.highlightText(post.description, query)}</div>
+                <div class="search-result-meta">
+                    <span style="color: #3b82f6; font-weight: 600;">${post.type}</span> • ${post.url}
+                </div>
             </div>
         `).join('');
     }
 
     highlightText(text, query) {
-        if (!query) return text;
-        const regex = new RegExp(`(${query})`, 'gi');
-        return text.replace(regex, '<mark style="background: #fef3c7; color: #92400e; padding: 2px 4px; border-radius: 4px;">$1</mark>');
+        if (!query || !text) return text;
+        const regex = new RegExp(`(${this.escapeRegex(query)})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    escapeRegex(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 }
 
