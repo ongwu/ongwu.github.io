@@ -82,7 +82,7 @@
                                 <path d="M8 9H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M8 13H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            踩踩网站
+                            网站留言
                         </a>
                     </li>
                     <li class="nav-item">
@@ -291,7 +291,7 @@
         <footer class="post-footer">
             <div class="post-navigation">
                 
-                <a href="/2025/01/10/10 - 副本 (20)/" class="prev-post">
+                <a href="/2025/01/10/10 - 副本 (2)/" class="prev-post">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="#666"/>
                     </svg>
@@ -299,7 +299,7 @@
                 </a>
                 
                 
-                <a href="/2025/01/10/10 - 副本 (22)/" class="next-post">
+                <a href="/2025/01/10/10 - 副本 (20)/" class="next-post">
                     GotifyNotify
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#666"/>
@@ -308,6 +308,67 @@
                 
             </div>
         </footer>
+        
+        <!-- 评论系统 -->
+        
+        <section class="comments-section">
+            <div class="container">
+                <div class="comments-header">
+                    <h3 class="comments-title">文章评论 (<span id="totalComments">0</span>)</h3>
+                    <div class="comments-filter">
+                        <select id="sortOrder" class="sort-select">
+                            <option value="newest">最新优先</option>
+                            <option value="oldest">最早优先</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- 评论表单 -->
+                <div class="comment-form-container">
+                    <form id="commentForm" class="comment-form">
+                        <div class="form-row">
+                            <div class="form-group username-group">
+                                <label for="username">用户名 *</label>
+                                <input type="text" id="username" name="username" placeholder="请输入你的用户名" required>
+                            </div>
+                            <div class="form-group captcha-group">
+                                <label for="captchaInput">验证码 *</label>
+                                <div class="captcha-input-row">
+                                    <input type="text" id="captchaInput" name="captcha" placeholder="请输入验证码" required>
+                                    <span id="captchaText" class="captcha-text"></span>
+                                    <button type="button" id="refreshCaptcha" class="refresh-captcha">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" fill="currentColor"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row comment-row">
+                            <div class="form-group comment-group">
+                                <label for="comment">留言内容 *</label>
+                                <textarea id="comment" name="comment" placeholder="在这里写下你的留言..." required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
+                                </svg>
+                                发表留言
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- 评论列表 -->
+                <div class="comments-list" id="commentsList"></div>
+                
+                <!-- 分页 -->
+                <div class="comments-pagination" id="commentsPagination"></div>
+            </div>
+        </section>
+        
     </div>
 </article>
 

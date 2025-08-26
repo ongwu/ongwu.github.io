@@ -1119,6 +1119,34 @@ body {
     border: 1px solid var(--border-color);
 }
 
+/* 文章页面评论系统增强样式 */
+.comments-section {
+    margin-top: 40px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.comments-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 16px 16px 0 0;
+}
+
+.comments-section .container {
+    position: relative;
+    z-index: 1;
+}
+
 .form-title {
     font-size: 24px;
     font-weight: 600;
@@ -1129,13 +1157,155 @@ body {
 .comment-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.comment-form-container {
+    margin-bottom: 32px;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+
+/* 评论表单布局 */
+.comment-form .form-row:first-child {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.comment-row {
+    margin-bottom: 24px;
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+/* 确保留言内容区域与上方输入框宽度一致 */
+.comment-group {
+    width: 100%;
+    grid-column: 1 / -1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+.username-group input,
+.captcha-group input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.username-group input:focus,
+.captcha-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.comment-group textarea {
+    min-height: 120px;
+    resize: vertical;
+    width: 100%;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.comment-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.captcha-row {
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.captcha-input-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.captcha-text {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 3px;
+    min-width: 80px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 2px 6px rgba(66, 153, 225, 0.1);
+}
+
+
+
+.refresh-captcha {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+}
+
+.refresh-captcha:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: var(--hover-bg);
+}
+
+.refresh-captcha svg {
+    width: 16px;
+    height: 16px;
 }
 
 .form-group {
@@ -1220,7 +1390,7 @@ body {
     color: white;
     border: none;
     padding: 12px 24px;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -1228,12 +1398,18 @@ body {
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(66, 153, 225, 0.2);
 }
 
 .submit-btn:hover {
     background: var(--button-hover);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+}
+
+.submit-btn svg {
+    width: 16px;
+    height: 16px;
 }
 
 /* 评论列表 */
@@ -1251,7 +1427,6 @@ body {
     align-items: center;
     margin-bottom: 24px;
     padding-bottom: 16px;
-    border-bottom: 1px solid var(--border-color);
 }
 
 .comments-title {
@@ -1278,36 +1453,54 @@ body {
 /* 评论项目 */
 .comment-item {
     background: var(--hover-bg);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 16px;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
     border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transition: all 0.3s ease;
+    position: relative;
 }
+
+.comment-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px var(--shadow-color);
+    border-color: var(--primary-color);
+}
+
+
 
 .comment-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    gap: 16px;   
+    flex-wrap: nowrap;
 }
 
 .comment-author {
     font-weight: 600;
     color: var(--primary-color);
     font-size: 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .comment-date {
     font-size: 12px;
     color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-.comment-content {
+.comment-header .comment-content {
     color: var(--text-color);
-    line-height: 1.6;
-    margin-bottom: 12px;
-    font-size: 14px;
+    font-size: 15px;
+    flex: 1;
+    line-height: 1.5;
+    white-space: normal;
 }
+
+
 
 .comment-actions {
     display: flex;
@@ -1318,31 +1511,62 @@ body {
     background: none;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 12px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.reply-btn::before {
+    content: '💬';
+    font-size: 14px;
 }
 
 .reply-btn:hover {
     background: var(--primary-color);
     color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
 }
 
 /* 回复区域 */
 .comment-replies {
-    margin-top: 16px;
-    padding-left: 20px;
-    border-left: 2px solid var(--border-color);
+    margin-top: 20px;
+    padding-left: 24px;
+    border-left: 3px solid var(--border-color);
+    position: relative;
+}
+
+.comment-replies::before {
+    content: '↳';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: bold;
+    background: var(--card-bg);
+    padding: 0 4px;
 }
 
 .reply-item {
     background: var(--card-bg);
-    border-radius: 6px;
-    padding: 16px;
-    margin-bottom: 12px;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 16px;
     border: 1px solid var(--border-color);
+    box-shadow: 0 2px 6px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.reply-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .reply-header {
@@ -1374,26 +1598,40 @@ body {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-top: 24px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.comments-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+    flex-wrap: wrap;
 }
 
 .page-btn {
-    padding: 8px 12px;
+    padding: 10px 16px;
     border: 1px solid var(--border-color);
     background: var(--card-bg);
     color: var(--text-color);
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
+    font-weight: 500;
+    min-width: 44px;
+    justify-content: center;
 }
 
 .page-btn:hover:not(.disabled) {
     border-color: var(--primary-color);
     color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
 }
 
 .page-btn.active {
@@ -1506,15 +1744,32 @@ body {
 /* 无评论状态 */
 .no-comments {
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
     color: var(--text-muted);
+    background: var(--hover-bg);
+    border-radius: 12px;
+    border: 2px dashed var(--border-color);
+    margin: 20px 0;
 }
 
 .no-comments::before {
     content: "💬";
-    font-size: 48px;
+    font-size: 64px;
     display: block;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 /* 响应式设计 */
@@ -2017,7 +2272,6 @@ body {
     text-align: center;
     margin-bottom: 40px;
     padding-bottom: 30px;
-    border-bottom: 1px solid var(--border-color);
 }
 
 .post-title {
@@ -2093,14 +2347,12 @@ body {
 }
 
 .post-content h1 {
-    font-size: 30px;
-    border-bottom: 2px solid var(--border-color);
+    font-size: 30px;http://localhost:4000/ranking/
     padding-bottom: 10px;
 }
 
 .post-content h2 {
     font-size: 26px;
-    border-bottom: 1px solid var(--border-color);
     padding-bottom: 8px;
 }
 

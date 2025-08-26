@@ -647,9 +647,9 @@ class GuestbookManager {
         commentDiv.innerHTML = `
             <div class="comment-header">
                 <span class="comment-author">${this.escapeHtml(comment.username)}</span>
+                <span class="comment-content">${this.escapeHtml(comment.content)}</span>
                 <span class="comment-date">${this.formatDate(comment.date)}</span>
             </div>
-            <div class="comment-content">${this.escapeHtml(comment.content)}</div>
             <div class="comment-actions">
                 <button class="reply-btn" data-id="${comment.id}">回复</button>
             </div>
@@ -799,6 +799,303 @@ class GuestbookManager {
     }
 }
 
+// 文章评论系统
+class PostCommentManager {
+    constructor() {
+        this.comments = [];
+        this.currentPage = 1;
+        this.commentsPerPage = 10;
+        this.currentCaptcha = '';
+        this.replyingTo = null;
+        
+        this.init();
+    }
+
+    init() {
+        this.loadComments();
+        this.generateCaptcha();
+        this.bindEvents();
+        this.renderComments();
+        this.renderPagination();
+    }
+
+    // 生成验证码
+    generateCaptcha() {
+        const chars = 'ABCDEFGHIJKMNPQRSTUVWXYZ23456789';
+        let result = '';
+        for (let i = 0; i < 4; i++) {
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        this.currentCaptcha = result;
+        const captchaText = document.getElementById('captchaText');
+        if (captchaText) {
+            captchaText.textContent = result;
+        }
+    }
+
+    // 绑定事件
+    bindEvents() {
+        const commentForm = document.getElementById('commentForm');
+        if (commentForm) {
+            commentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.submitComment();
+            });
+        }
+
+        const refreshCaptcha = document.getElementById('refreshCaptcha');
+        if (refreshCaptcha) {
+            refreshCaptcha.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.generateCaptcha();
+            });
+        }
+
+        const sortOrder = document.getElementById('sortOrder');
+        if (sortOrder) {
+            sortOrder.addEventListener('change', (e) => {
+                this.sortComments(e.target.value);
+                this.renderComments();
+            });
+        }
+    }
+
+    // 加载评论
+    loadComments() {
+        const postId = window.location.pathname;
+        const savedComments = localStorage.getItem(`postComments_${postId}`);
+        if (savedComments) {
+            this.comments = JSON.parse(savedComments);
+        } else {
+            this.comments = [];
+        }
+    }
+
+    // 保存评论
+    saveComments() {
+        const postId = window.location.pathname;
+        localStorage.setItem(`postComments_${postId}`, JSON.stringify(this.comments));
+    }
+
+    // 提交评论
+    submitComment() {
+        const username = document.getElementById('username').value.trim();
+        const content = document.getElementById('comment').value.trim();
+        const captchaInput = document.getElementById('captchaInput').value.trim();
+
+        if (!username || !content || !captchaInput) {
+            alert('请填写所有必填字段');
+            return;
+        }
+
+        if (captchaInput.toUpperCase() !== this.currentCaptcha) {
+            alert('验证码错误，请重新输入');
+            this.generateCaptcha();
+            document.getElementById('captchaInput').value = '';
+            return;
+        }
+
+        const newComment = {
+            id: Date.now(),
+            username: username,
+            content: content,
+            date: new Date().toISOString(),
+            replies: []
+        };
+
+        this.comments.unshift(newComment);
+        this.saveComments();
+        this.renderComments();
+        this.renderPagination();
+
+        // 清空表单
+        document.getElementById('username').value = '';
+        document.getElementById('comment').value = '';
+        document.getElementById('captchaInput').value = '';
+        this.generateCaptcha();
+
+        alert('评论发表成功！');
+    }
+
+    // 排序评论
+    sortComments(order) {
+        if (order === 'newest') {
+            this.comments.sort((a, b) => new Date(b.date) - new Date(a.date));
+        } else {
+            this.comments.sort((a, b) => new Date(a.date) - new Date(b.date));
+        }
+    }
+
+    // 渲染评论
+    renderComments() {
+        const startIndex = (this.currentPage - 1) * this.commentsPerPage;
+        const endIndex = startIndex + this.commentsPerPage;
+        const pageComments = this.comments.slice(startIndex, endIndex);
+        const commentsList = document.getElementById('commentsList');
+
+        if (!commentsList) return;
+
+        commentsList.innerHTML = '';
+
+        if (pageComments.length === 0) {
+            commentsList.innerHTML = '<div class="no-comments">还没有评论，快来发表第一条评论吧！</div>';
+        } else {
+            pageComments.forEach(comment => {
+                const commentElement = this.createCommentElement(comment);
+                commentsList.appendChild(commentElement);
+            });
+        }
+
+        const totalComments = document.getElementById('totalComments');
+        if (totalComments) {
+            totalComments.textContent = this.comments.length;
+        }
+    }
+
+    // 创建评论元素
+    createCommentElement(comment) {
+        const commentDiv = document.createElement('div');
+        commentDiv.className = 'comment-item';
+        
+        commentDiv.innerHTML = `
+            <div class="comment-header">
+                <span class="comment-author">${this.escapeHtml(comment.username)}</span>
+                <span class="comment-content">${this.escapeHtml(comment.content)}</span>
+                <span class="comment-date">${this.formatDate(comment.date)}</span>
+            </div>
+            ${comment.replies.length > 0 ? this.createRepliesSection(comment.replies) : ''}
+        `;
+
+        return commentDiv;
+    }
+
+    // 创建回复区域
+    createRepliesSection(replies) {
+        let repliesHTML = '<div class="comment-replies">';
+        replies.forEach(reply => {
+            repliesHTML += `
+                <div class="reply-item">
+                    <div class="reply-header">
+                        <span class="reply-author">${this.escapeHtml(reply.username)}</span>
+                        <span class="reply-date">${this.formatDate(reply.date)}</span>
+                    </div>
+                    <div class="reply-content">${this.escapeHtml(reply.content)}</div>
+                </div>
+            `;
+        });
+        repliesHTML += '</div>';
+        return repliesHTML;
+    }
+
+    // 渲染分页
+    renderPagination() {
+        const pagination = document.getElementById('commentsPagination');
+        if (!pagination) return;
+
+        const totalPages = Math.ceil(this.comments.length / this.commentsPerPage);
+        
+        if (totalPages <= 1) {
+            pagination.innerHTML = '';
+            return;
+        }
+
+        let paginationHTML = '';
+        
+        // 上一页按钮
+        paginationHTML += `
+            <button class="page-btn prev-page ${this.currentPage === 1 ? 'disabled' : ''}" 
+                    ${this.currentPage === 1 ? 'disabled' : ''}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/>
+                </svg>
+                上一页
+            </button>
+        `;
+
+        // 页码按钮
+        for (let i = 1; i <= totalPages; i++) {
+            paginationHTML += `
+                <button class="page-btn page-number ${i === this.currentPage ? 'active' : ''}" 
+                        data-page="${i}">
+                    ${i}
+                </button>
+            `;
+        }
+        
+        // 下一页按钮
+        paginationHTML += `
+            <button class="page-btn next-page ${this.currentPage === totalPages ? 'disabled' : ''}" 
+                    ${this.currentPage === totalPages ? 'disabled' : ''}>
+                下一页
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor"/>
+                </svg>
+            </button>
+        `;
+        
+        pagination.innerHTML = paginationHTML;
+        
+        // 绑定分页事件
+        const pageButtons = pagination.querySelectorAll('.page-number');
+        pageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                this.currentPage = parseInt(button.getAttribute('data-page'));
+                this.renderComments();
+                this.renderPagination();
+                document.getElementById('commentsList').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        const prevButton = pagination.querySelector('.prev-page:not(.disabled)');
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                this.currentPage--;
+                this.renderComments();
+                this.renderPagination();
+                document.getElementById('commentsList').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+        
+        const nextButton = pagination.querySelector('.next-page:not(.disabled)');
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                this.currentPage++;
+                this.renderComments();
+                this.renderPagination();
+                document.getElementById('commentsList').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+    }
+
+    // 格式化日期
+    formatDate(date) {
+        if (typeof date === 'string') {
+            date = new Date(date);
+        }
+        
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        
+        return `${year}-${month}-${day} ${hours}:${minutes}`;
+    }
+
+    // HTML转义
+    escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        
+        return text.replace(/[&<>"']/g, m => map[m]);
+    }
+}
+
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化导航栏滚动效果
@@ -815,5 +1112,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始化留言板功能
     if (document.getElementById('commentForm')) {
         new GuestbookManager();
+    }
+    
+    // 初始化文章评论功能
+    if (document.querySelector('.comments-section')) {
+        new PostCommentManager();
     }
 });
