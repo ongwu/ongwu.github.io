@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ongwu博客 - 个人技术学习</title>
+    <meta name="description" content="Ongwu博客，分享技术，分享生活，分享一切.">
+    <meta name="keywords" content="技术，生活，分享">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.ico">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 页面内容包装器 -->
+    <div class="page-wrapper">
+        <!-- 头部 -->
+        <header class="header">
+    <div class="container">
+        <div class="header-content">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="/">
+                    <div class="logo-icon">
+                        <div class="logo-lines">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <span class="logo-text">ONGWU BLOG</span>
+                </a>
+            </div>
+            
+            <!-- 导航菜单 -->
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            首页
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/projects/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3H21V21H3V3ZM5 5V19H19V5H5ZM7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H13V17H7V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            项目作品
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tech/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            技术深究
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tutorial/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 3H6A2 2 0 0 1 8 5V17A2 2 0 0 1 6 19H2A2 2 0 0 1 0 17V5A2 2 0 0 1 2 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 3H18A2 2 0 0 0 16 5V17A2 2 0 0 0 18 19H22A2 2 0 0 0 24 17V5A2 2 0 0 0 22 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 11L12 8L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            教程分享
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ranking/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15A2 2 0 0 1 19 17H7L4 20V5A2 2 0 0 1 6 3H19A2 2 0 0 1 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 9H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 13H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            踩踩网站
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://ongwu.cn" class="nav-link" target="_blank">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 13A5 5 0 0 0 20 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 17A5 5 0 0 0 4 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 21L21 19L19 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5 3L3 5L5 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 5L19 3L17 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 19L5 21L3 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            其他开发中
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- 右侧功能按钮 -->
+            <div class="header-actions">
+                <!-- 搜索按钮 -->
+                <button class="search-btn" id="searchBtn" title="搜索">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- 主题切换按钮 -->
+                <button class="theme-toggle" id="themeToggle" title="切换主题">
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V5M12 19V21M5.314 5.314L6.728 6.728M17.272 17.272L18.686 18.686M3 12H5M19 12H21M6.728 17.272L5.314 18.686M18.686 5.314L17.272 6.728M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 搜索弹窗 -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-overlay" id="searchOverlay"></div>
+        <div class="search-container">            
+            <div class="search-input-wrapper">
+                <div class="search-input-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <input type="text" class="search-input" id="searchInput" placeholder="输入关键词搜索文章..." autocomplete="off">
+                <button class="search-close" id="searchClose">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- 搜索建议 -->
+            <div class="search-suggestions" id="searchSuggestions">
+                <div class="suggestion-tags">
+                    <span class="suggestion-tag" data-tag="ongwu">ongwu</span>
+                    <span class="suggestion-tag" data-tag="插件">插件</span>
+                    <span class="suggestion-tag" data-tag="主题">主题</span>
+                    <span class="suggestion-tag" data-tag="技术">技术</span>
+                    <span class="suggestion-tag" data-tag="教程">教程</span>
+                    <span class="suggestion-tag" data-tag="项目">项目</span>
+                </div>
+            </div>
+            
+            <!-- 搜索结果 -->
+            <div class="search-results" id="searchResults"></div>
+            
+            <!-- 无结果状态 -->
+            <div class="search-no-results" id="searchNoResults" style="display: none;">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h4>未找到相关文章</h4>
+                <p>试试其他关键词，或者查看我们的热门标签</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+        
+        <!-- 主要内容 -->
+        <main class="main-content">
+            <!-- 首页标题设置 -->
+
+
+<!-- 项目作品部分 -->
+<section class="section projects-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="title-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2>项目作品</h2>
+            </div>
+            <a href="/projects/" class="more-link">更多</a>
+        </div>
+        
+        <div class="projects-grid">
+            
+            
+            <div class="project-card">
+                <div class="project-preview">
+                    
+                        <img src="https://ts2.tc.mm.bing.net/th/id/OIP-C.K_1vDSk4gbFbCbPm8xWnNAHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                    
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="/2025/01/12/1/">Ongwu作品示例</a>
+                    </h3>
+                    <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-preview">
+                    
+                        <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.kSzeQM4M_fb3e9pudBIzNQAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                    
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="/2025/01/12/2/">Ongwu作品示例</a>
+                    </h3>
+                    <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-preview">
+                    
+                        <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                    
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="/2025/01/12/3 - 副本 (10)/">Ongwu作品示例</a>
+                    </h3>
+                    <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-preview">
+                    
+                        <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                    
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">
+                        <a href="/2025/01/12/3 - 副本 (11)/">Ongwu作品示例</a>
+                    </h3>
+                    <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- 技术深究部分 -->
+<section class="section tech-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="title-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h2>技术深究</h2>
+            </div>
+            <a href="/tech/" class="more-link">更多</a>
+        </div>
+        
+        <div class="tech-grid">
+            
+            
+            <div class="tech-item">
+                <div class="tech-icon">
+                    
+                        <img src="/images/tech/gotify-icon.png" alt="GotifyNotify">
+                    
+                </div>
+                <div class="tech-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/10/10 - 副本 (10)/">GotifyNotify</a>
+                    </h3>
+                    <p class="tech-subtitle">ongwu博客Gotify通知插件</p>
+                </div>
+            </div>
+            
+            <div class="tech-item">
+                <div class="tech-icon">
+                    
+                        <img src="/images/tech/gotify-icon.png" alt="GotifyNotify">
+                    
+                </div>
+                <div class="tech-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/10/10 - 副本 (11)/">GotifyNotify</a>
+                    </h3>
+                    <p class="tech-subtitle">ongwu博客Gotify通知插件</p>
+                </div>
+            </div>
+            
+            <div class="tech-item">
+                <div class="tech-icon">
+                    
+                        <img src="/images/tech/gotify-icon.png" alt="GotifyNotify">
+                    
+                </div>
+                <div class="tech-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/10/10 - 副本 (12)/">GotifyNotify</a>
+                    </h3>
+                    <p class="tech-subtitle">ongwu博客Gotify通知插件</p>
+                </div>
+            </div>
+            
+            <div class="tech-item">
+                <div class="tech-icon">
+                    
+                        <img src="/images/tech/gotify-icon.png" alt="GotifyNotify">
+                    
+                </div>
+                <div class="tech-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/10/10 - 副本 (13)/">GotifyNotify</a>
+                    </h3>
+                    <p class="tech-subtitle">ongwu博客Gotify通知插件</p>
+                </div>
+            </div>
+            
+            <div class="tech-item">
+                <div class="tech-icon">
+                    
+                        <img src="/images/tech/gotify-icon.png" alt="GotifyNotify">
+                    
+                </div>
+                <div class="tech-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/10/10 - 副本 (14)/">GotifyNotify</a>
+                    </h3>
+                    <p class="tech-subtitle">ongwu博客Gotify通知插件</p>
+                </div>
+            </div>
+            
+            <div class="tech-item">
+                <div class="tech-icon">
+                    
+                        <img src="/images/tech/gotify-icon.png" alt="GotifyNotify">
+                    
+                </div>
+                <div class="tech-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/10/10 - 副本 (15)/">GotifyNotify</a>
+                    </h3>
+                    <p class="tech-subtitle">ongwu博客Gotify通知插件</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- 教程分享部分 -->
+<section class="section tutorial-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="title-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 19.5C4 18.1193 5.11929 17 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6.5 2H20V22H6.5C5.11929 22 4 20.8807 4 19.5V2.5C4 1.11929 5.11929 0 6.5 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 7H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 11H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 15H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2>教程分享</h2>
+            </div>
+            <a href="/tutorial/" class="more-link">更多</a>
+        </div>
+        
+        <div class="tutorial-grid">
+            
+            
+            <div class="tutorial-item">
+                <div class="tutorial-icon">
+                    
+                        <img src="/images/tutorial/search-icon.png" alt="让ongwu支持搜索符号">
+                    
+                </div>
+                <div class="tutorial-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/09/13/">让ongwu支持搜索符号</a>
+                    </h3>
+                    <p class="tech-subtitle">修改源码实现符号搜索功能</p>
+                </div>
+            </div>
+            
+            <div class="tutorial-item">
+                <div class="tutorial-icon">
+                    
+                        <img src="/images/tutorial/search-icon.png" alt="让ongwu支持搜索符号">
+                    
+                </div>
+                <div class="tutorial-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/09/14/">让ongwu支持搜索符号</a>
+                    </h3>
+                    <p class="tech-subtitle">修改源码实现符号搜索功能</p>
+                </div>
+            </div>
+            
+            <div class="tutorial-item">
+                <div class="tutorial-icon">
+                    
+                        <img src="/images/tutorial/search-icon.png" alt="让ongwu支持搜索符号">
+                    
+                </div>
+                <div class="tutorial-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/09/15/">让ongwu支持搜索符号</a>
+                    </h3>
+                    <p class="tech-subtitle">修改源码实现符号搜索功能</p>
+                </div>
+            </div>
+            
+            <div class="tutorial-item">
+                <div class="tutorial-icon">
+                    
+                        <img src="/images/tutorial/search-icon.png" alt="让ongwu支持搜索符号">
+                    
+                </div>
+                <div class="tutorial-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/09/16/">让ongwu支持搜索符号</a>
+                    </h3>
+                    <p class="tech-subtitle">修改源码实现符号搜索功能</p>
+                </div>
+            </div>
+            
+            <div class="tutorial-item">
+                <div class="tutorial-icon">
+                    
+                        <img src="/images/tutorial/search-icon.png" alt="让ongwu支持搜索符号">
+                    
+                </div>
+                <div class="tutorial-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/09/17/">让ongwu支持搜索符号</a>
+                    </h3>
+                    <p class="tech-subtitle">修改源码实现符号搜索功能</p>
+                </div>
+            </div>
+            
+            <div class="tutorial-item">
+                <div class="tutorial-icon">
+                    
+                        <img src="/images/tutorial/search-icon.png" alt="让ongwu支持搜索符号">
+                    
+                </div>
+                <div class="tutorial-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/09/7 - 副本 (10) - 副本/">让ongwu支持搜索符号</a>
+                    </h3>
+                    <p class="tech-subtitle">修改源码实现符号搜索功能</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- 友情链接部分 -->
+<section class="section links-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-title">
+                <h2>友情链接</h2>
+            </div>
+            <div class="links-grid">
+                <a href="https://hexo.io" class="link-item" target="_blank" rel="noopener">
+                    <span>Hexo</span>
+                </a>
+                <a href="https://github.com" class="link-item" target="_blank" rel="noopener">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://nodejs.org" class="link-item" target="_blank" rel="noopener">
+                    <span>Node.js</span>
+                </a>
+                <a href="https://ongwu.cn" class="link-item" target="_blank" rel="noopener">
+                    <span>Ongwu</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </main>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" title="返回顶部">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- 火箭主体 - 蓝色 -->
+            <path d="M12 2L10 8H8L6 12L8 16H10L12 22L14 16H16L18 12L16 8H14L12 2Z" fill="#3B82F6"/>
+            <!-- 火箭头部 - 白色 -->
+            <path d="M12 4L11 8H13L12 4Z" fill="white"/>
+            <!-- 火箭尾翼 - 白色 -->
+            <path d="M8 14L6 18L8 20L10 16H8Z" fill="white"/>
+            <path d="M16 14L18 18L16 20L14 16H16Z" fill="white"/>
+            <!-- 火箭窗户 - 深蓝色 -->
+            <circle cx="12" cy="10" r="1.5" fill="#1E40AF"/>
+            <!-- 火箭火焰 - 橙色 -->
+            <path d="M10 20L8 24H16L14 20H10Z" fill="#F59E0B"/>
+            <path d="M11 20L9 23H15L13 20H11Z" fill="#F97316"/>
+        </svg>
+    </button>
+    
+    <!-- 底部 -->
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- 版权信息 -->
+            <div class="footer-copyright">
+                <p class="copyright">© 2025  <a href="https://ongwu.cn">Ongwu博客</a> .All rights reserved | Powered by <a href="https://ongwu.cn">Ongwu</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/ongwu/ongwu-hexo-theme">ongwu-hexo-theme</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+    
+    <!-- 搜索功能 -->
+    
+    
+    <!-- 返回顶部功能 -->
+    <script>
+    // 返回顶部功能
+    (function() {
+        const backToTop = document.getElementById('backToTop');
+        
+        // 监听滚动事件
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // 点击返回顶部
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
