@@ -275,7 +275,7 @@
         <footer class="post-footer">
             <div class="post-navigation">
                 
-                <a href="/2025/01/09/7 - 副本 (19) - 副本/" class="prev-post">
+                <a href="/2025/01/09/7 - 副本 (2)/" class="prev-post">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="#666"/>
                     </svg>
@@ -334,6 +334,32 @@
     
     <!-- 搜索功能 -->
     
+  <script type="text/javascript">
+    // 搜索功能已在 main.js 中实现
+    // 这里只需要确保 search.xml 被正确加载
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('初始化搜索功能...');
+      // 搜索路径
+      var search_path = "search.xml";
+      if (search_path.length === 0) {
+        search_path = "search.xml";
+      }
+      var path = "/" + search_path;
+      
+      // 预加载搜索数据
+      fetch(path)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('搜索数据加载失败');
+          }
+          console.log('搜索数据加载成功');
+        })
+        .catch(error => {
+          console.error('搜索数据加载错误:', error);
+        });
+    });
+  </script>
+
     
     <!-- 返回顶部功能 -->
     <script>
