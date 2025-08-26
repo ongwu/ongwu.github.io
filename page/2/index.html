@@ -393,20 +393,6 @@
                 </div>
                 <div class="tech-content">
                     <h3 class="tech-title">
-                        <a href="/2025/01/10/10 - 副本 (18)/">GotifyNotify</a>
-                    </h3>
-                    <p class="tech-subtitle">ongwu博客Gotify通知插件</p>
-                </div>
-            </div>
-            
-            <div class="tech-item">
-                <div class="tech-icon">
-                    
-                        <img src="/images/tech/gotify-icon.png" alt="GotifyNotify">
-                    
-                </div>
-                <div class="tech-content">
-                    <h3 class="tech-title">
                         <a href="/2025/01/10/10 - 副本 (19)/">GotifyNotify</a>
                     </h3>
                     <p class="tech-subtitle">ongwu博客Gotify通知插件</p>
@@ -435,7 +421,21 @@
                 </div>
                 <div class="tech-content">
                     <h3 class="tech-title">
-                        <a href="/2025/01/10/10 - 副本 (21)/">GotifyNotify</a>
+                        <a href="/2025/01/10/10 - 副本 (20)/">GotifyNotify</a>
+                    </h3>
+                    <p class="tech-subtitle">ongwu博客Gotify通知插件</p>
+                </div>
+            </div>
+            
+            <div class="tech-item">
+                <div class="tech-icon">
+                    
+                        <img src="/images/tech/gotify-icon.png" alt="GotifyNotify">
+                    
+                </div>
+                <div class="tech-content">
+                    <h3 class="tech-title">
+                        <a href="/2025/01/10/10 - 副本 (18)/">GotifyNotify</a>
                     </h3>
                     <p class="tech-subtitle">ongwu博客Gotify通知插件</p>
                 </div>
@@ -503,7 +503,7 @@
                 </div>
                 <div class="tutorial-content">
                     <h3 class="tech-title">
-                        <a href="/2025/01/09/15/">让ongwu支持搜索符号</a>
+                        <a href="/2025/01/09/16/">让ongwu支持搜索符号</a>
                     </h3>
                     <p class="tech-subtitle">修改源码实现符号搜索功能</p>
                 </div>
@@ -517,7 +517,7 @@
                 </div>
                 <div class="tutorial-content">
                     <h3 class="tech-title">
-                        <a href="/2025/01/09/16/">让ongwu支持搜索符号</a>
+                        <a href="/2025/01/09/15/">让ongwu支持搜索符号</a>
                     </h3>
                     <p class="tech-subtitle">修改源码实现符号搜索功能</p>
                 </div>
@@ -670,18 +670,25 @@
     <!-- 返回顶部按钮 -->
     <button class="back-to-top" id="backToTop" title="返回顶部">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <!-- 火箭主体 - 蓝色 -->
-            <path d="M12 2L10 8H8L6 12L8 16H10L12 22L14 16H16L18 12L16 8H14L12 2Z" fill="#3B82F6"/>
-            <!-- 火箭头部 - 白色 -->
-            <path d="M12 4L11 8H13L12 4Z" fill="white"/>
-            <!-- 火箭尾翼 - 白色 -->
-            <path d="M8 14L6 18L8 20L10 16H8Z" fill="white"/>
-            <path d="M16 14L18 18L16 20L14 16H16Z" fill="white"/>
-            <!-- 火箭窗户 - 深蓝色 -->
-            <circle cx="12" cy="10" r="1.5" fill="#1E40AF"/>
-            <!-- 火箭火焰 - 橙色 -->
-            <path d="M10 20L8 24H16L14 20H10Z" fill="#F59E0B"/>
-            <path d="M11 20L9 23H15L13 20H11Z" fill="#F97316"/>
+            <defs>
+                <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff69b4"/>
+                    <stop offset="50%" style="stop-color:#9370db"/>
+                    <stop offset="100%" style="stop-color:#00bfff"/>
+                </linearGradient>
+            </defs>
+            <!-- 火箭主体 -->
+            <path d="M12 2L10 8H8L6 12L8 16H10L12 22L14 16H16L18 12L16 8H14L12 2Z" stroke="url(#rocketGradient)" fill="none"/>
+            <!-- 火箭头部 -->
+            <path d="M12 4L11 8H13L12 4Z" stroke="url(#rocketGradient)" fill="none"/>
+            <!-- 火箭尾翼 -->
+            <path d="M8 14L6 18L8 20L10 16H8Z" stroke="url(#rocketGradient)" fill="none"/>
+            <path d="M16 14L18 18L16 20L14 16H16Z" stroke="url(#rocketGradient)" fill="none"/>
+            <!-- 火箭窗户 -->
+            <circle cx="12" cy="10" r="1.5" stroke="url(#rocketGradient)" fill="none"/>
+            <!-- 火箭火焰 -->
+            <path d="M10 20L8 24H16L14 20H10Z" stroke="url(#rocketGradient)" fill="none"/>
+            <path d="M11 20L9 23H15L13 20H11Z" stroke="url(#rocketGradient)" fill="none"/>
         </svg>
     </button>
     
@@ -699,6 +706,7 @@
 
     
     <!-- JavaScript -->
+    <script src="/js/comment-api.js"></script>
     <script src="/js/main.js"></script>
     
     <!-- 搜索功能 -->

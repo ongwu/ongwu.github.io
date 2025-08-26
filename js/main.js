@@ -807,12 +807,13 @@ class PostCommentManager {
         this.commentsPerPage = 10;
         this.currentCaptcha = '';
         this.replyingTo = null;
+        this.commentAPI = new CommentAPI();
         
         this.init();
     }
 
-    init() {
-        this.loadComments();
+    async init() {
+        await this.loadComments();
         this.generateCaptcha();
         this.bindEvents();
         this.renderComments();
@@ -861,19 +862,40 @@ class PostCommentManager {
     }
 
     // 加载评论
-    loadComments() {
+    async loadComments() {
         const postId = window.location.pathname;
-        const savedComments = localStorage.getItem(`postComments_${postId}`);
-        if (savedComments) {
-            this.comments = JSON.parse(savedComments);
-        } else {
-            this.comments = [];
+        
+        try {
+            // 首先尝试从 JSON 文件加载评论
+            const jsonComments = await this.commentAPI.getComments(postId);
+            this.comments = jsonComments;
+            
+            // 同步到 localStorage
+            this.commentAPI.saveCommentsToLocalStorage(postId, this.comments);
+        } catch (error) {
+            console.log('从 JSON 文件加载评论失败，使用 localStorage:', error);
+            // 如果失败，从 localStorage 加载
+            const savedComments = localStorage.getItem(`postComments_${postId}`);
+            if (savedComments) {
+                this.comments = JSON.parse(savedComments);
+            } else {
+                this.comments = [];
+            }
         }
     }
 
     // 保存评论
-    saveComments() {
+    async saveComments() {
         const postId = window.location.pathname;
+        
+        try {
+            // 尝试保存到 JSON 文件
+            await this.commentAPI.saveComments(postId, this.comments);
+        } catch (error) {
+            console.log('保存到 JSON 文件失败，使用 localStorage:', error);
+        }
+        
+        // 同时保存到 localStorage 作为备选
         localStorage.setItem(`postComments_${postId}`, JSON.stringify(this.comments));
     }
 
