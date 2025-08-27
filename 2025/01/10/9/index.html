@@ -299,7 +299,7 @@
                 </a>
                 
                 
-                <a href="/2025/01/09/13/" class="next-post">
+                <a href="/2025/01/09/14/" class="next-post">
                     让ongwu支持搜索符号
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#666"/>
@@ -309,66 +309,140 @@
             </div>
         </footer>
         
-        <!-- 评论系统 -->
+        <!-- 引入Giscus评论系统 -->
+        <!-- Giscus评论系统 -->
+
+<section class="comments-section">
+    <div class="container">
+        <div class="comments-header">
+            
+                <h3 class="comments-title">文章评论</h3>
+            
+            <p class="comments-description">使用GitHub账号登录后即可参与讨论</p>
+        </div>
         
-        <section class="comments-section">
-            <div class="container">
-                <div class="comments-header">
-                    <h3 class="comments-title">文章评论 (<span id="totalComments">0</span>)</h3>
-                    <div class="comments-filter">
-                        <select id="sortOrder" class="sort-select">
-                            <option value="newest">最新优先</option>
-                            <option value="oldest">最早优先</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <!-- 评论表单 -->
-                <div class="comment-form-container">
-                    <form id="commentForm" class="comment-form">
-                        <div class="form-row">
-                            <div class="form-group username-group">
-                                <label for="username">用户名 *</label>
-                                <input type="text" id="username" name="username" placeholder="请输入你的用户名" required>
-                            </div>
-                            <div class="form-group captcha-group">
-                                <label for="captchaInput">验证码 *</label>
-                                <div class="captcha-input-row">
-                                    <input type="text" id="captchaInput" name="captcha" placeholder="请输入验证码" required>
-                                    <span id="captchaText" class="captcha-text"></span>
-                                    <button type="button" id="refreshCaptcha" class="refresh-captcha">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" fill="currentColor"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row comment-row">
-                            <div class="form-group comment-group">
-                                <label for="comment">留言内容 *</label>
-                                <textarea id="comment" name="comment" placeholder="在这里写下你的留言..." required></textarea>
-                            </div>
-                        </div>
-                        <div class="form-actions">
-                            <button type="submit" class="submit-btn">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
-                                </svg>
-                                发表留言
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                
-                <!-- 评论列表 -->
-                <div class="comments-list" id="commentsList"></div>
-                
-                <!-- 分页 -->
-                <div class="comments-pagination" id="commentsPagination"></div>
-            </div>
-        </section>
+        <!-- Giscus评论容器 -->
+        <div class="giscus-container">
+            <div class="giscus" id="giscus-comments"></div>
+        </div>
         
+        <!-- 加载状态提示 -->
+        <div class="giscus-loading" id="giscus-loading">
+            <p>正在加载评论系统...</p>
+        </div>
+        
+        <!-- 错误状态提示 -->
+        <div class="giscus-error" id="giscus-error" style="display: none;">
+            <p>评论系统加载失败</p>
+            <button onclick="retryGiscus()" class="retry-btn">重试</button>
+        </div>
+    </div>
+</section>
+
+<!-- Giscus脚本 -->
+<script>
+// 全局变量存储Giscus配置
+window.giscusConfig = {
+    repo: 'ongwu/comment-system',
+    repoId: 'R_kgDOPlCIKA',
+    category: 'Announcements',
+    categoryId: 'DIC_kwDOPlCIKM4Cup3i',
+    mapping: 'pathname',
+    strict: '0',
+    reactionsEnabled: '1',
+    emitMetadata: '0',
+    inputPosition: 'bottom',
+    theme: 'preferred_color_scheme',
+    lang: 'zh-CN'
+};
+
+// 重试函数
+function retryGiscus() {
+    const errorElement = document.getElementById('giscus-error');
+    const loadingElement = document.getElementById('giscus-loading');
+    const giscusElement = document.getElementById('giscus-comments');
+    
+    if (errorElement) errorElement.style.display = 'none';
+    if (loadingElement) loadingElement.style.display = 'block';
+    if (giscusElement) giscusElement.style.display = 'none';
+    
+    // 重新加载Giscus
+    loadGiscus();
+}
+
+// 加载Giscus函数
+function loadGiscus() {
+    // 显示加载状态
+    const loadingElement = document.getElementById('giscus-loading');
+    const giscusElement = document.getElementById('giscus-comments');
+    const errorElement = document.getElementById('giscus-error');
+    
+    if (loadingElement) loadingElement.style.display = 'block';
+    if (giscusElement) giscusElement.style.display = 'none';
+    if (errorElement) errorElement.style.display = 'none';
+    
+    // 创建Giscus脚本
+    const giscusScript = document.createElement('script');
+    giscusScript.src = 'https://giscus.app/client.js';
+    
+    // 设置基本配置
+    giscusScript.setAttribute('data-repo', window.giscusConfig.repo);
+    giscusScript.setAttribute('data-repo-id', window.giscusConfig.repoId);
+    giscusScript.setAttribute('data-category', window.giscusConfig.category);
+    giscusScript.setAttribute('data-category-id', window.giscusConfig.categoryId);
+    giscusScript.setAttribute('data-mapping', window.giscusConfig.mapping);
+    giscusScript.setAttribute('data-strict', window.giscusConfig.strict);
+    giscusScript.setAttribute('data-reactions-enabled', window.giscusConfig.reactionsEnabled);
+    giscusScript.setAttribute('data-emit-metadata', window.giscusConfig.emitMetadata);
+    giscusScript.setAttribute('data-input-position', window.giscusConfig.inputPosition);
+    giscusScript.setAttribute('data-theme', window.giscusConfig.theme);
+    giscusScript.setAttribute('data-lang', window.giscusConfig.lang);
+    giscusScript.setAttribute('crossorigin', 'anonymous');
+    giscusScript.async = true;
+    
+    // 添加错误处理
+    giscusScript.onerror = function() {
+        console.error('Giscus脚本加载失败');
+        if (loadingElement) loadingElement.style.display = 'none';
+        if (errorElement) errorElement.style.display = 'block';
+    };
+    
+    // 监听Giscus加载完成
+    giscusScript.onload = function() {
+        console.log('Giscus脚本加载成功');
+        console.log('当前配置:', window.giscusConfig);
+        console.log('页面信息:', {
+            title: document.title,
+            url: window.location.href,
+            pathname: window.location.pathname
+        });
+        
+        // 等待一段时间后隐藏加载状态
+        setTimeout(function() {
+            if (loadingElement) loadingElement.style.display = 'none';
+            if (giscusElement) giscusElement.style.display = 'block';
+        }, 1000);
+    };
+    
+    // 将脚本添加到页面
+    document.head.appendChild(giscusScript);
+    
+    // 设置超时处理
+    setTimeout(function() {
+        if (loadingElement && loadingElement.style.display !== 'none') {
+            if (loadingElement) loadingElement.style.display = 'none';
+            if (errorElement) errorElement.style.display = 'block';
+        }
+    }, 10000);
+}
+
+// 页面加载完成后初始化Giscus
+document.addEventListener('DOMContentLoaded', function() {
+    loadGiscus();
+});
+</script>
+
+
     </div>
 </article>
 
@@ -414,7 +488,6 @@
 
     
     <!-- JavaScript -->
-    <script src="/js/comment-api.js"></script>
     <script src="/js/main.js"></script>
     
     <!-- 搜索功能 -->
