@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GotifyNotify - Ongwu博客 - 个人技术学习</title>
+    <meta name="description" content="GotifyNotify是一个ongwu博客通知插件，集成Gotify服务，实现实时消息推送功能。">
+    <meta name="keywords" content="技术，生活，分享">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.ico">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 页面内容包装器 -->
+    <div class="page-wrapper">
+        <!-- 头部 -->
+        <header class="header">
+    <div class="container">
+        <div class="header-content">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="/">
+                    <div class="logo-icon">
+                        <div class="logo-lines">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <span class="logo-text">ONGWU BLOG</span>
+                </a>
+            </div>
+            
+            <!-- 导航菜单 -->
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            首页
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/projects/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3H21V21H3V3ZM5 5V19H19V5H5ZM7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H13V17H7V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            项目作品
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tech/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            技术深究
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tutorial/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 3H6A2 2 0 0 1 8 5V17A2 2 0 0 1 6 19H2A2 2 0 0 1 0 17V5A2 2 0 0 1 2 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 3H18A2 2 0 0 0 16 5V17A2 2 0 0 0 18 19H22A2 2 0 0 0 24 17V5A2 2 0 0 0 22 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 11L12 8L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            教程分享
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ranking/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15A2 2 0 0 1 19 17H7L4 20V5A2 2 0 0 1 6 3H19A2 2 0 0 1 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 9H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 13H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            网站留言
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://ongwu.cn" class="nav-link" target="_blank">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 13A5 5 0 0 0 20 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 17A5 5 0 0 0 4 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 21L21 19L19 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5 3L3 5L5 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 5L19 3L17 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 19L5 21L3 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            其他开发中
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- 右侧功能按钮 -->
+            <div class="header-actions">
+                <!-- 搜索按钮 -->
+                <button class="search-btn" id="searchBtn" title="搜索">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- 主题切换按钮 -->
+                <button class="theme-toggle" id="themeToggle" title="切换主题">
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V5M12 19V21M5.314 5.314L6.728 6.728M17.272 17.272L18.686 18.686M3 12H5M19 12H21M6.728 17.272L5.314 18.686M18.686 5.314L17.272 6.728M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 搜索弹窗 -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-overlay" id="searchOverlay"></div>
+        <div class="search-container">            
+            <div class="search-input-wrapper">
+                <div class="search-input-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <input type="text" class="search-input" id="searchInput" placeholder="输入关键词搜索文章..." autocomplete="off">
+                <button class="search-close" id="searchClose">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- 搜索建议 -->
+            <div class="search-suggestions" id="searchSuggestions">
+                <div class="suggestion-tags">
+                    <span class="suggestion-tag" data-tag="ongwu">ongwu</span>
+                    <span class="suggestion-tag" data-tag="插件">插件</span>
+                    <span class="suggestion-tag" data-tag="主题">主题</span>
+                    <span class="suggestion-tag" data-tag="技术">技术</span>
+                    <span class="suggestion-tag" data-tag="教程">教程</span>
+                    <span class="suggestion-tag" data-tag="项目">项目</span>
+                </div>
+            </div>
+            
+            <!-- 搜索结果 -->
+            <div class="search-results" id="searchResults"></div>
+            
+            <!-- 无结果状态 -->
+            <div class="search-no-results" id="searchNoResults" style="display: none;">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h4>未找到相关文章</h4>
+                <p>试试其他关键词，或者查看我们的热门标签</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+        
+        <!-- 主要内容 -->
+        <main class="main-content">
+            <article class="post">
+    <div class="container">
+        <header class="post-header">
+            <h1 class="post-title">GotifyNotify</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#666"/>
+                    </svg>
+                    2025年01月10日
+                </span>
+                
+                
+                <span class="post-tags">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z" fill="#666"/>
+                    </svg>
+                    
+                        <a href="/tags/ongwu插件/" class="tag-link">ongwu插件</a>
+                        , 
+                    
+                        <a href="/tags/通知系统/" class="tag-link">通知系统</a>
+                        , 
+                    
+                        <a href="/tags/Gotify/" class="tag-link">Gotify</a>
+                        , 
+                    
+                        <a href="/tags/消息推送/" class="tag-link">消息推送</a>
+                        
+                    
+                </span>
+                
+            </div>
+        </header>
+        
+        <div class="post-content">
+            <h1 id="GotifyNotify-ongwu通知插件"><a href="#GotifyNotify-ongwu通知插件" class="headerlink" title="GotifyNotify - ongwu通知插件"></a>GotifyNotify - ongwu通知插件</h1><h2 id="插件概述"><a href="#插件概述" class="headerlink" title="插件概述"></a>插件概述</h2><p>GotifyNotify是一个专为ongwu博客开发的通知插件，通过集成Gotify服务，为博客管理员和用户提供实时的消息推送功能。无论是新评论、新文章还是系统通知，都能及时推送到指定设备。</p>
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><h3 id="通知类型"><a href="#通知类型" class="headerlink" title="通知类型"></a>通知类型</h3><ul>
+<li><strong>评论通知</strong>：新评论发布时自动推送</li>
+<li><strong>文章通知</strong>：新文章发布时通知订阅用户</li>
+<li><strong>系统通知</strong>：重要系统事件实时推送</li>
+<li><strong>自定义通知</strong>：支持自定义消息内容</li>
+</ul>
+<h3 id="推送方式"><a href="#推送方式" class="headerlink" title="推送方式"></a>推送方式</h3><ul>
+<li><strong>Gotify服务</strong>：通过Gotify API推送消息</li>
+<li><strong>多设备支持</strong>：支持Android、iOS、Web等平台</li>
+<li><strong>实时推送</strong>：毫秒级消息传递</li>
+<li><strong>离线存储</strong>：消息持久化存储</li>
+</ul>
+<h2 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h2><h3 id="系统架构图"><a href="#系统架构图" class="headerlink" title="系统架构图"></a>系统架构图</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ongwu博客 → GotifyNotify插件 → Gotify服务器 → 客户端设备</span><br><span class="line">     ↓              ↓              ↓           ↓</span><br><span class="line">   事件触发     消息处理      消息分发     消息接收</span><br></pre></td></tr></table></figure>
+
+<h3 id="核心代码实现"><a href="#核心代码实现" class="headerlink" title="核心代码实现"></a>核心代码实现</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通知处理类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GotifyNotify_Handler</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$gotifyUrl</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$appToken</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$url</span>, <span class="variable">$token</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;gotifyUrl = <span class="variable">$url</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;appToken = <span class="variable">$token</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 发送通知</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">sendNotification</span>(<span class="params"><span class="variable">$title</span>, <span class="variable">$message</span>, <span class="variable">$priority</span> = <span class="number">0</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$data</span> = <span class="keyword">array</span>(</span><br><span class="line">            <span class="string">&#x27;title&#x27;</span> =&gt; <span class="variable">$title</span>,</span><br><span class="line">            <span class="string">&#x27;message&#x27;</span> =&gt; <span class="variable">$message</span>,</span><br><span class="line">            <span class="string">&#x27;priority&#x27;</span> =&gt; <span class="variable">$priority</span></span><br><span class="line">        );</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">postToGotify</span>(<span class="variable">$data</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 推送到Gotify</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">postToGotify</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$ch</span> = <span class="title function_ invoke__">curl_init</span>();</span><br><span class="line">        <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$ch</span>, CURLOPT_URL, <span class="variable">$this</span>-&gt;gotifyUrl . <span class="string">&#x27;/message&#x27;</span>);</span><br><span class="line">        <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$ch</span>, CURLOPT_POST, <span class="literal">true</span>);</span><br><span class="line">        <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$ch</span>, CURLOPT_POSTFIELDS, <span class="title function_ invoke__">json_encode</span>(<span class="variable">$data</span>));</span><br><span class="line">        <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$ch</span>, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(</span><br><span class="line">            <span class="string">&#x27;X-Gotify-Key: &#x27;</span> . <span class="variable">$this</span>-&gt;appToken,</span><br><span class="line">            <span class="string">&#x27;Content-Type: application/json&#x27;</span></span><br><span class="line">        ));</span><br><span class="line">        </span><br><span class="line">        <span class="variable">$response</span> = <span class="title function_ invoke__">curl_exec</span>(<span class="variable">$ch</span>);</span><br><span class="line">        <span class="title function_ invoke__">curl_close</span>(<span class="variable">$ch</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$response</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><h3 id="1-安装Gotify服务器"><a href="#1-安装Gotify服务器" class="headerlink" title="1. 安装Gotify服务器"></a>1. 安装Gotify服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Docker安装方式</span></span><br><span class="line">docker run -p 80:80 -p 443:443 \</span><br><span class="line">  -v /var/gotify:/app/data \</span><br><span class="line">  gotify/server</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-配置插件"><a href="#2-配置插件" class="headerlink" title="2. 配置插件"></a>2. 配置插件</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 插件配置</span></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">&#x27;gotify_url&#x27;</span> =&gt; <span class="string">&#x27;https://your-gotify-server.com&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;app_token&#x27;</span> =&gt; <span class="string">&#x27;your-app-token&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;enable_comments&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&#x27;enable_posts&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&#x27;enable_system&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&#x27;notification_priority&#x27;</span> =&gt; <span class="number">0</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-客户端配置"><a href="#3-客户端配置" class="headerlink" title="3. 客户端配置"></a>3. 客户端配置</h3><ul>
+<li>下载Gotify客户端应用</li>
+<li>配置服务器地址和认证信息</li>
+<li>设置通知偏好</li>
+</ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><h3 id="博客管理"><a href="#博客管理" class="headerlink" title="博客管理"></a>博客管理</h3><ul>
+<li>新评论实时提醒</li>
+<li>系统状态监控</li>
+<li>安全事件通知</li>
+</ul>
+<h3 id="用户服务"><a href="#用户服务" class="headerlink" title="用户服务"></a>用户服务</h3><ul>
+<li>文章更新提醒</li>
+<li>回复通知</li>
+<li>重要公告推送</li>
+</ul>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><h3 id="推送优化"><a href="#推送优化" class="headerlink" title="推送优化"></a>推送优化</h3><ul>
+<li>批量消息处理</li>
+<li>智能重试机制</li>
+<li>消息队列缓冲</li>
+</ul>
+<h3 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h3><ul>
+<li>连接池复用</li>
+<li>内存使用优化</li>
+<li>数据库查询优化</li>
+</ul>
+<h2 id="安全考虑"><a href="#安全考虑" class="headerlink" title="安全考虑"></a>安全考虑</h2><h3 id="认证安全"><a href="#认证安全" class="headerlink" title="认证安全"></a>认证安全</h3><ul>
+<li>Token加密存储</li>
+<li>HTTPS通信加密</li>
+<li>访问权限控制</li>
+</ul>
+<h3 id="数据保护"><a href="#数据保护" class="headerlink" title="数据保护"></a>数据保护</h3><ul>
+<li>敏感信息过滤</li>
+<li>日志记录审计</li>
+<li>异常行为监控</li>
+</ul>
+<h2 id="扩展功能"><a href="#扩展功能" class="headerlink" title="扩展功能"></a>扩展功能</h2><h3 id="插件扩展"><a href="#插件扩展" class="headerlink" title="插件扩展"></a>插件扩展</h3><ul>
+<li>支持自定义通知模板</li>
+<li>支持多种推送服务</li>
+<li>支持条件触发规则</li>
+</ul>
+<h3 id="集成能力"><a href="#集成能力" class="headerlink" title="集成能力"></a>集成能力</h3><ul>
+<li>与现有通知系统集成</li>
+<li>支持Webhook回调</li>
+<li>支持第三方服务集成</li>
+</ul>
+<h2 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h2><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol>
+<li><strong>连接失败</strong>：检查网络和服务器状态</li>
+<li><strong>认证错误</strong>：验证Token配置</li>
+<li><strong>推送延迟</strong>：检查服务器负载</li>
+</ol>
+<h3 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h3><ul>
+<li>启用详细日志</li>
+<li>检查网络连接</li>
+<li>验证API响应</li>
+</ul>
+<hr>
+<p><em>GotifyNotify让ongwu博客通知更智能、更及时！</em></p>
+
+        </div>
+        
+        <footer class="post-footer">
+            <div class="post-navigation">
+                
+                <a href="/2025/01/12/4/" class="prev-post">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="#666"/>
+                    </svg>
+                    Ongwu作品示例
+                </a>
+                
+                
+                <a href="/2025/01/10/10 - 副本 (11)/" class="next-post">
+                    GotifyNotify
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#666"/>
+                    </svg>
+                </a>
+                
+            </div>
+        </footer>
+        
+        <!-- 引入Giscus评论系统 -->
+        <!-- Giscus评论系统 -->
+
+<section class="comments-section">
+    <div class="container">
+        <div class="comments-header">
+            
+                <h3 class="comments-title">文章评论</h3>
+            
+            <p class="comments-description">使用GitHub账号登录后即可参与讨论</p>
+        </div>
+        
+        <!-- Giscus评论容器 -->
+        <div class="giscus-container">
+            <div class="giscus" id="giscus-comments"></div>
+        </div>
+        
+        <!-- 加载状态提示 -->
+        <div class="giscus-loading" id="giscus-loading">
+            <p>正在加载评论系统...</p>
+        </div>
+        
+        <!-- 错误状态提示 -->
+        <div class="giscus-error" id="giscus-error" style="display: none;">
+            <p>评论系统加载失败</p>
+            <button onclick="retryGiscus()" class="retry-btn">重试</button>
+        </div>
+    </div>
+</section>
+
+<!-- Giscus脚本 -->
+<script>
+// 全局变量存储Giscus配置
+window.giscusConfig = {
+    repo: 'ongwu/comment-system',
+    repoId: 'R_kgDOPlCIKA',
+    category: 'Announcements',
+    categoryId: 'DIC_kwDOPlCIKM4Cup3i',
+    mapping: 'pathname',
+    strict: '0',
+    reactionsEnabled: '1',
+    emitMetadata: '0',
+    inputPosition: 'bottom',
+    theme: 'preferred_color_scheme',
+    lang: 'zh-CN'
+};
+
+// 重试函数
+function retryGiscus() {
+    const errorElement = document.getElementById('giscus-error');
+    const loadingElement = document.getElementById('giscus-loading');
+    const giscusElement = document.getElementById('giscus-comments');
+    
+    if (errorElement) errorElement.style.display = 'none';
+    if (loadingElement) loadingElement.style.display = 'block';
+    if (giscusElement) giscusElement.style.display = 'none';
+    
+    // 重新加载Giscus
+    loadGiscus();
+}
+
+// 加载Giscus函数
+function loadGiscus() {
+    // 显示加载状态
+    const loadingElement = document.getElementById('giscus-loading');
+    const giscusElement = document.getElementById('giscus-comments');
+    const errorElement = document.getElementById('giscus-error');
+    
+    if (loadingElement) loadingElement.style.display = 'block';
+    if (giscusElement) giscusElement.style.display = 'none';
+    if (errorElement) errorElement.style.display = 'none';
+    
+    // 创建Giscus脚本
+    const giscusScript = document.createElement('script');
+    giscusScript.src = 'https://giscus.app/client.js';
+    
+    // 设置基本配置
+    giscusScript.setAttribute('data-repo', window.giscusConfig.repo);
+    giscusScript.setAttribute('data-repo-id', window.giscusConfig.repoId);
+    giscusScript.setAttribute('data-category', window.giscusConfig.category);
+    giscusScript.setAttribute('data-category-id', window.giscusConfig.categoryId);
+    giscusScript.setAttribute('data-mapping', window.giscusConfig.mapping);
+    giscusScript.setAttribute('data-strict', window.giscusConfig.strict);
+    giscusScript.setAttribute('data-reactions-enabled', window.giscusConfig.reactionsEnabled);
+    giscusScript.setAttribute('data-emit-metadata', window.giscusConfig.emitMetadata);
+    giscusScript.setAttribute('data-input-position', window.giscusConfig.inputPosition);
+    giscusScript.setAttribute('data-theme', window.giscusConfig.theme);
+    giscusScript.setAttribute('data-lang', window.giscusConfig.lang);
+    giscusScript.setAttribute('crossorigin', 'anonymous');
+    giscusScript.async = true;
+    
+    // 添加错误处理
+    giscusScript.onerror = function() {
+        console.error('Giscus脚本加载失败');
+        if (loadingElement) loadingElement.style.display = 'none';
+        if (errorElement) errorElement.style.display = 'block';
+    };
+    
+    // 监听Giscus加载完成
+    giscusScript.onload = function() {
+        console.log('Giscus脚本加载成功');
+        console.log('当前配置:', window.giscusConfig);
+        console.log('页面信息:', {
+            title: document.title,
+            url: window.location.href,
+            pathname: window.location.pathname
+        });
+        
+        // 等待一段时间后隐藏加载状态
+        setTimeout(function() {
+            if (loadingElement) loadingElement.style.display = 'none';
+            if (giscusElement) giscusElement.style.display = 'block';
+        }, 1000);
+    };
+    
+    // 将脚本添加到页面
+    document.head.appendChild(giscusScript);
+    
+    // 设置超时处理
+    setTimeout(function() {
+        if (loadingElement && loadingElement.style.display !== 'none') {
+            if (loadingElement) loadingElement.style.display = 'none';
+            if (errorElement) errorElement.style.display = 'block';
+        }
+    }, 10000);
+}
+
+// 页面加载完成后初始化Giscus
+document.addEventListener('DOMContentLoaded', function() {
+    loadGiscus();
+});
+</script>
+
+
+    </div>
+</article>
+
+        </main>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" title="返回顶部">
+        <img src="/images/ongwu.svg" alt="返回顶部" />
+    </button>
+    
+    <!-- 底部 -->
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- 版权信息 -->
+            <div class="footer-copyright">
+                <p class="copyright">© 2025  <a href="https://ongwu.cn">ONGWU BLOG</a> .All rights reserved | Powered by <a href="https://ongwu.cn">ongwu</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/ongwu/ongwu-hexo-theme">ongwu-hexo-theme</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+    
+    <!-- 搜索功能 -->
+    
+  <script type="text/javascript">
+    // 搜索功能已在 main.js 中实现
+    // 这里只需要确保 search.xml 被正确加载
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('初始化搜索功能...');
+      // 搜索路径
+      var search_path = "search.xml";
+      if (search_path.length === 0) {
+        search_path = "search.xml";
+      }
+      var path = "/" + search_path;
+      
+      // 预加载搜索数据
+      fetch(path)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('搜索数据加载失败');
+          }
+          console.log('搜索数据加载成功');
+        })
+        .catch(error => {
+          console.error('搜索数据加载错误:', error);
+        });
+    });
+  </script>
+
+    
+    <!-- 返回顶部功能 -->
+    <script>
+    // 返回顶部功能
+    (function() {
+        const backToTop = document.getElementById('backToTop');
+        
+        // 监听滚动事件
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // 点击返回顶部
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

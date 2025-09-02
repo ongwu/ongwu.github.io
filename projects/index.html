@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目作品 - Ongwu博客 - 个人技术学习</title>
+    <meta name="description" content="Ongwu博客，分享技术，分享生活，分享一切.">
+    <meta name="keywords" content="技术，生活，分享">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.ico">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <!-- 页面内容包装器 -->
+    <div class="page-wrapper">
+        <!-- 头部 -->
+        <header class="header">
+    <div class="container">
+        <div class="header-content">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="/">
+                    <div class="logo-icon">
+                        <div class="logo-lines">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <span class="logo-text">ONGWU BLOG</span>
+                </a>
+            </div>
+            
+            <!-- 导航菜单 -->
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            首页
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/projects/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3H21V21H3V3ZM5 5V19H19V5H5ZM7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H13V17H7V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            项目作品
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tech/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            技术深究
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/tutorial/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 3H6A2 2 0 0 1 8 5V17A2 2 0 0 1 6 19H2A2 2 0 0 1 0 17V5A2 2 0 0 1 2 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 3H18A2 2 0 0 0 16 5V17A2 2 0 0 0 18 19H22A2 2 0 0 0 24 17V5A2 2 0 0 0 22 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 11L12 8L15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            教程分享
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/ranking/" class="nav-link">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15A2 2 0 0 1 19 17H7L4 20V5A2 2 0 0 1 6 3H19A2 2 0 0 1 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 9H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 13H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            网站留言
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://ongwu.cn" class="nav-link" target="_blank">
+                            <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 13A5 5 0 0 0 20 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 17A5 5 0 0 0 4 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 21L21 19L19 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5 3L3 5L5 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 5L19 3L17 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 19L5 21L3 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            其他开发中
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- 右侧功能按钮 -->
+            <div class="header-actions">
+                <!-- 搜索按钮 -->
+                <button class="search-btn" id="searchBtn" title="搜索">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- 主题切换按钮 -->
+                <button class="theme-toggle" id="themeToggle" title="切换主题">
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3V5M12 19V21M5.314 5.314L6.728 6.728M17.272 17.272L18.686 18.686M3 12H5M19 12H21M6.728 17.272L5.314 18.686M18.686 5.314L17.272 6.728M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 搜索弹窗 -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-overlay" id="searchOverlay"></div>
+        <div class="search-container">            
+            <div class="search-input-wrapper">
+                <div class="search-input-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <input type="text" class="search-input" id="searchInput" placeholder="输入关键词搜索文章..." autocomplete="off">
+                <button class="search-close" id="searchClose">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- 搜索建议 -->
+            <div class="search-suggestions" id="searchSuggestions">
+                <div class="suggestion-tags">
+                    <span class="suggestion-tag" data-tag="ongwu">ongwu</span>
+                    <span class="suggestion-tag" data-tag="插件">插件</span>
+                    <span class="suggestion-tag" data-tag="主题">主题</span>
+                    <span class="suggestion-tag" data-tag="技术">技术</span>
+                    <span class="suggestion-tag" data-tag="教程">教程</span>
+                    <span class="suggestion-tag" data-tag="项目">项目</span>
+                </div>
+            </div>
+            
+            <!-- 搜索结果 -->
+            <div class="search-results" id="searchResults"></div>
+            
+            <!-- 无结果状态 -->
+            <div class="search-no-results" id="searchNoResults" style="display: none;">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h4>未找到相关文章</h4>
+                <p>试试其他关键词，或者查看我们的热门标签</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+        
+        <!-- 主要内容 -->
+        <main class="main-content">
+            <!-- 页面标题设置 -->
+
+
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title">
+            项目作品
+        </h1>
+        <p class="page-description">展示我的项目作品和技术实践</p>
+    </div>
+    
+    <div class="projects-grid" id="projectsGrid">
+        
+        
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://www.img520.com/OIotFC.png" alt="Ongwu主题 - 专为GitHub Pages + Hexo 架构打造的自适应主题" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/1/">Ongwu主题 - 专为GitHub Pages + Hexo 架构打造的自适应主题</a>
+                </h3>
+                <p class="project-description">一个简洁大气的Hexo博客主题，专注于技术分享、项目展示和教程分享。</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.kSzeQM4M_fb3e9pudBIzNQAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/2/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (10)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (11)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (12)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (13)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (14)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (15)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (16)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (17)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (18)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (19)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (2)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (20)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (21)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (22)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (23)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (24)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (25)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (26)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (27)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (28)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (29)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (3)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (30)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (31)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (4)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (5)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (6)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (7)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (8)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本 (9)/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3 - 副本/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.hZHMBgv_hJKSXaP0W4lcUAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/3/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+        <div class="project-card" data-post="true">
+            <div class="project-preview">
+                
+                    <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.YwPEnBMt7JP3AqzgfGlnQwHaFk?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ongwu作品示例" class="project-image">
+                
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">
+                    <a href="/2025/01/12/4/">Ongwu作品示例</a>
+                </h3>
+                <p class="project-description">一个现代化的扁平设计博客主题，注重简洁和用户体验</p>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- 分页导航 -->
+    <div class="pagination-wrapper" id="projectsPagination" style="display: none;">
+        <div class="pagination" id="projectsPaginationNav">
+            <!-- 分页按钮将通过JavaScript动态生成 -->
+        </div>
+        
+        <div class="pagination-info" id="projectsPaginationInfo">
+            <!-- 分页信息将通过JavaScript动态生成 -->
+        </div>
+    </div>
+</div>
+
+<script>
+// 项目作品页面分页功能
+(function() {
+    const postsPerPage = 20;
+    const grid = document.getElementById('projectsGrid');
+    const pagination = document.getElementById('projectsPagination');
+    const paginationNav = document.getElementById('projectsPaginationNav');
+    const paginationInfo = document.getElementById('projectsPaginationInfo');
+    
+    if (!grid) return;
+    
+    const posts = Array.from(grid.querySelectorAll('[data-post="true"]'));
+    const totalPosts = posts.length;
+    const totalPages = Math.ceil(totalPosts / postsPerPage);
+    
+    // 总是显示分页，即使只有一页
+    pagination.style.display = 'block';
+    
+    // 声明当前页变量（使用window对象使其全局可访问）
+    window.currentProjectsPage = 1;
+    
+    if (totalPages <= 1) {
+        // 如果只有一页，显示所有项目
+        posts.forEach(post => post.style.display = 'block');
+        paginationInfo.innerHTML = `共 ${totalPosts} 个项目`;
+        // 即使只有一页，也生成分页导航（显示页码1）
+        generatePagination();
+        return;
+    }
+    
+    // 隐藏所有项目
+    posts.forEach(post => post.style.display = 'none');
+    
+    // 显示第一页
+    showPage(1);
+    
+    // 生成分页导航
+    generatePagination();
+    
+    function showPage(pageNum) {
+        const start = (pageNum - 1) * postsPerPage;
+        const end = start + postsPerPage;
+        
+        posts.forEach((post, index) => {
+            post.style.display = (index >= start && index < end) ? 'block' : 'none';
+        });
+        
+        updatePaginationInfo(pageNum);
+    }
+    
+    function generatePagination() {
+        let html = '';
+        
+        // 上一页按钮
+        if (window.currentProjectsPage === 1) {
+            html += '<button class="page-btn prev-page" disabled>';
+            html += '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">';
+            html += '<path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+            html += '</svg>上一页</button>';
+        } else {
+            html += '<button class="page-btn prev-page" onclick="changeProjectsPage(window.currentProjectsPage - 1)">';
+            html += '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">';
+            html += '<path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+            html += '</svg>上一页</button>';
+        }
+        
+        // 页码按钮
+        for (let i = 1; i <= totalPages; i++) {
+            if (i === window.currentProjectsPage) {
+                html += '<span class="page-btn current-page">' + i + '</span>';
+            } else {
+                html += '<button class="page-btn" onclick="changeProjectsPage(' + i + ')">' + i + '</button>';
+            }
+        }
+        
+        // 下一页按钮
+        if (window.currentProjectsPage === totalPages) {
+            html += '<button class="page-btn next-page" disabled>';
+            html += '下一页<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">';
+            html += '<path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+            html += '</svg></button>';
+        } else {
+            html += '<button class="page-btn next-page" onclick="changeProjectsPage(window.currentProjectsPage + 1)">';
+            html += '下一页<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">';
+            html += '<path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+            html += '</svg></button>';
+        }
+        
+        paginationNav.innerHTML = html;
+    }
+    
+    function updatePaginationInfo(pageNum) {
+        paginationInfo.innerHTML = `第 ${pageNum} 页，共 ${totalPages} 页，总计 ${totalPosts} 个项目`;
+    }
+    
+    let currentProjectsPage = 1;
+    
+    window.changeProjectsPage = function(pageNum) {
+        if (pageNum < 1 || pageNum > totalPages) return;
+        
+        window.currentProjectsPage = pageNum;
+        showPage(pageNum);
+        
+        // 重新生成分页导航以更新按钮状态
+        generatePagination();
+        
+        // 滚动到顶部
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+})();
+</script>
+
+        </main>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" title="返回顶部">
+        <img src="/images/ongwu.svg" alt="返回顶部" />
+    </button>
+    
+    <!-- 底部 -->
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- 版权信息 -->
+            <div class="footer-copyright">
+                <p class="copyright">© 2025  <a href="https://ongwu.cn">ONGWU BLOG</a> .All rights reserved | Powered by <a href="https://ongwu.cn">ongwu</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/ongwu/ongwu-hexo-theme">ongwu-hexo-theme</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+    
+    <!-- 搜索功能 -->
+    
+  <script type="text/javascript">
+    // 搜索功能已在 main.js 中实现
+    // 这里只需要确保 search.xml 被正确加载
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('初始化搜索功能...');
+      // 搜索路径
+      var search_path = "search.xml";
+      if (search_path.length === 0) {
+        search_path = "search.xml";
+      }
+      var path = "/" + search_path;
+      
+      // 预加载搜索数据
+      fetch(path)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('搜索数据加载失败');
+          }
+          console.log('搜索数据加载成功');
+        })
+        .catch(error => {
+          console.error('搜索数据加载错误:', error);
+        });
+    });
+  </script>
+
+    
+    <!-- 返回顶部功能 -->
+    <script>
+    // 返回顶部功能
+    (function() {
+        const backToTop = document.getElementById('backToTop');
+        
+        // 监听滚动事件
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // 点击返回顶部
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
