@@ -100,7 +100,4 @@ theme: stellar
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  repo: https://ongwu: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@github.com/ongwu/ongwu.github.io.git
-  branch: main
+
